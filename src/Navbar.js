@@ -10,7 +10,7 @@ export default function NavbarClass () {
     return (
       <Navbar collapseOnSelect expand="sm" bg="navbar-light" variant="light">
         <Navbar.Brand as={NavLink} to='/'>
-          <img src="/mowbray family recipes logo.png" alt="mowbray logo" width="195px" height="200px"/>
+          <img src="/mowbray family recipes logo.png" alt="mowbray logo" width="200x"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

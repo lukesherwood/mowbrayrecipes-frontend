@@ -13,7 +13,8 @@ export const fetchRecipes = () => {
         }
     })
       .then((data) => {
-        dispatch({ type: "ADD_RECIPES", recipes: data.data });
+        console.log(data.data.data)
+        dispatch({ type: "ADD_RECIPES", recipes: data.data.data });
       })
       .catch(function (error) {
         NotificationManager.error(
@@ -40,7 +41,7 @@ export const createRecipe = (recipeInfo) => {
         }
       )
       .then((data) => {
-        dispatch({ type: "ADD_RECIPE", recipe: data.data });
+        dispatch({ type: "ADD_RECIPE", recipe: data.data.data });
       })
       .catch(function (error) {
         NotificationManager.error(
