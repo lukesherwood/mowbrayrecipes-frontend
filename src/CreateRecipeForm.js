@@ -10,7 +10,10 @@ class CreateRecipeForm extends Component {
     super(props);
     this.state = {
       name: "",
-      description: "",
+      ingredients: "",
+      method: "",
+      notes: "",
+      imageUrl: "",
     };
   }
 
@@ -23,11 +26,13 @@ class CreateRecipeForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, ingredients, method } = this.state;
+    const { name, ingredients, method, notes, imageUrl } = this.state;
     let recipe = {
       name: name,
       ingredients: ingredients,
       method: method,
+      notes: notes,
+      image_url: imageUrl,
       user_id: this.props.currentUser.id,
     };
     this.props.createRecipe(recipe);
@@ -35,21 +40,21 @@ class CreateRecipeForm extends Component {
       name: "",
       ingredients: "",
       method: "",
-
+      notes: "",
+      imageUrl: "",
     })
     // document.getElementById('toggle-new-list-form').click()
   };
 
   render() {
-    const { name, ingredients, method } = this.state;
+    const { name, ingredients, method, notes, imageUrl} = this.state;
     return (
       <div className="recipe-card">
         <h3>Create a new Recipe</h3>
-        <Form inline onSubmit={(event) => this.handleSubmit(event)}>
+        <Form onSubmit={(event) => this.handleSubmit(event)}>
           <Form.Group>
             <Form.Label size="sm"> Name </Form.Label>
             <Form.Control
-              required
               type="text"
               className="mb-2 mr-sm-2"
               size="sm"
@@ -62,7 +67,8 @@ class CreateRecipeForm extends Component {
             <Form.Label size="sm"> Ingredients </Form.Label>
             <Form.Control
               className="mb-2 mr-sm-2"
-              type="text"
+              as="textarea" 
+              rows={3}
               size="sm"
               name="ingredients"
               onChange={(event) => this.handleChange(event)}
@@ -72,13 +78,36 @@ class CreateRecipeForm extends Component {
           <Form.Group>
             <Form.Label size="sm"> Method </Form.Label>
             <Form.Control
-              required
-              type="text"
+              as="textarea" 
+              rows={3}
               className="mb-2 mr-sm-2"
               size="sm"
               name="method"
               onChange={(event) => this.handleChange(event)}
               value={method}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label size="sm"> Notes </Form.Label>
+            <Form.Control
+              placeholder="For example: serves how many people, things to keep an eye out for, total duration of cooking."
+              className="mb-2 mr-sm-2"
+              type="text"
+              size="sm"
+              name="notes"
+              onChange={(event) => this.handleChange(event)}
+              value={notes}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label size="sm"> Image </Form.Label>
+            <Form.Control
+              className="mb-2 mr-sm-2"
+              type="text"
+              size="sm"
+              name="imageUrl"
+              onChange={(event) => this.handleChange(event)}
+              value={imageUrl}
             />
           </Form.Group>
           <Button variant="primary" type="submit">
