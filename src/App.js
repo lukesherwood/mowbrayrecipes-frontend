@@ -11,6 +11,7 @@ import Home from "./Home";
 import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
 import Container from "react-bootstrap/Container";
+import LogoutOrLogin from "./LogoutOrLogin";
 
 class App extends Component {
   componentDidMount() {
@@ -19,11 +20,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <LogoutOrLogin  currentUser={this.props.user} loggedIn={this.props.loggedIn} logUserOut={this.props.logUserOut}/>
         <Container fluid>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/signIn" component={SignIn} />
             <Route exact path="/signUp" component={SignUp} />
+
           </Switch>
           <NotificationContainer />
         </Container>
@@ -35,6 +38,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     loggedIn: state.users.loggedIn,
+    user: state.users.user,
   }
 }
 
