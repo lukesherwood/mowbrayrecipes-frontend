@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { NotificationManager } from 'react-notifications';
 import { Nav } from 'react-bootstrap'
+import {logUserOut} from './actions/userActions'
+import { connect } from "react-redux";
 class LogoutLogin extends React.Component {
     
     handleClick = event => {
@@ -29,5 +31,19 @@ class LogoutLogin extends React.Component {
         )
       }
     }
-export default withRouter(LogoutLogin)
+
+    const mapStateToProps = (state) => {
+      return {
+        user: state.users.user,
+        loggedIn: state.users.loggedIn
+      }
+    }
+    
+    const mapDispatchToProps = (dispatch) => {
+      return {
+        logUserOut: () => dispatch(logUserOut())
+      }
+    }
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogoutLogin))
       

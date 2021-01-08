@@ -11,8 +11,8 @@ import Home from "./Home";
 import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
 import Container from "react-bootstrap/Container";
-import LogoutOrLogin from "./LogoutOrLogin";
 import RecipesContainer from "./RecipesContainer";
+import NavbarClass from "./Navbar";
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <LogoutOrLogin  currentUser={this.props.user} loggedIn={this.props.loggedIn} logUserOut={this.props.logUserOut}/>
+        <NavbarClass/>
         <Container fluid>
           <Switch>
             <Route exact path="/" component={Home} />
