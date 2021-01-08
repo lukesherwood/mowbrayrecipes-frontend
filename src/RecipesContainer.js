@@ -2,6 +2,7 @@ import React from "react";
 import { fetchRecipes } from "./actions/recipeActions";
 import { connect } from "react-redux";
 import CreateRecipeForm from "./CreateRecipeForm";
+import Recipes from "./Recipes";
 
 class RecipesContainer extends React.Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class RecipesContainer extends React.Component {
       <div className="recipes-container">
         {/* <Recipes recipes={this.props.recipes} fetchRecipes={this.props.fetchRecipes} /> */}
         <CreateRecipeForm currentUser={this.props.user}/>
+        <Recipes recipes={this.props.recipes}/>
       </div>
     );
   }
