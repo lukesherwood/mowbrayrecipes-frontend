@@ -12,6 +12,7 @@ import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
 import Container from "react-bootstrap/Container";
 import LogoutOrLogin from "./LogoutOrLogin";
+import RecipesContainer from "./RecipesContainer";
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +27,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/signIn" component={SignIn} />
             <Route exact path="/signUp" component={SignUp} />
-
+            <Route exact path="/recipes" component={RecipesContainer} />
           </Switch>
           <NotificationContainer />
         </Container>

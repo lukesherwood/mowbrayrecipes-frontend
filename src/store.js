@@ -7,9 +7,11 @@ import {
 
   import thunk from 'redux-thunk';  
   import users from './reducers/usersReducer'
+  import recipes from './reducers/recipesReducer'
   
   const reducers = combineReducers({
     users,
+    recipes
   });
   
   const middleware = [thunk];
