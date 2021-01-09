@@ -1,18 +1,18 @@
-import "./App.css";
+import "../App.css";
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { autoLogin, logUserOut } from "./actions/userActions";
+import { autoLogin, logUserOut } from "../actions/userActions";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
-import Home from "./Home";
+import Home from "../components/Home";
 
 import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
 import Container from "react-bootstrap/Container";
 import RecipesContainer from "./RecipesContainer";
-import NavbarClass from "./Navbar";
+import NavbarClass from "../components/Navbar";
 
 class App extends Component {
   componentDidMount() {

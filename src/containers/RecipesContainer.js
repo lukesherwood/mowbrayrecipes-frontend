@@ -1,8 +1,8 @@
 import React from "react";
-import { fetchRecipes } from "./actions/recipeActions";
+import { fetchRecipes } from "../actions/recipeActions";
 import { connect } from "react-redux";
 import CreateRecipeForm from "./CreateRecipeForm";
-import Recipes from "./Recipes";
+import Recipes from "../components/Recipes";
 
 class RecipesContainer extends React.Component {
   componentDidMount() {

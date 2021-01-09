@@ -13,12 +13,11 @@
 
 .navbar {
     font-size: x-large;
-    padding-top: 0px;
     background-color: #e3f2fd;
 }
 .navbar-brand {
-    padding-top: 20px;
-    height: 120px;
+    padding-top: 5px;
+    height: 80px;
 }
 .navbar-brand img {
     width: 200px;
@@ -35,7 +34,8 @@ body {
 
 .container-fluid {
     min-height: 100vh; /* will cover the 100% of viewport */
-    position: relative;
+    position: relative;   
+    padding-top: 20px;
 }
 
 .card-text {

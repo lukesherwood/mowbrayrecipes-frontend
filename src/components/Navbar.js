@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import LogoutOrLogin from './LogoutOrLogin'
+import LogoutOrLogin from '../containers/LogoutOrLogin'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { useSelector } from 'react-redux';

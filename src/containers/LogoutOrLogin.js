@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { NotificationManager } from 'react-notifications';
 import { Nav } from 'react-bootstrap'
-import {logUserOut} from './actions/userActions'
+import {logUserOut} from '../actions/userActions'
 import { connect } from "react-redux";
 class LogoutLogin extends React.Component {
     
