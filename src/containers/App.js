@@ -13,6 +13,8 @@ import { NotificationContainer } from "react-notifications";
 import Container from "react-bootstrap/Container";
 import RecipesContainer from "./RecipesContainer";
 import NavbarClass from "../components/Navbar";
+import UserRecipesContainer from "./UserRecipesContainer";
+import createRecipeForm from './CreateRecipeForm'
 
 class App extends Component {
   componentDidMount() {
@@ -28,6 +30,8 @@ class App extends Component {
             <Route exact path="/signIn" component={SignIn} />
             <Route exact path="/signUp" component={SignUp} />
             <Route exact path="/recipes" component={RecipesContainer} />
+            <Route exact path="/user" component={UserRecipesContainer} />
+            <Route exact path="/createRecipe" component={createRecipeForm} />
           </Switch>
           <NotificationContainer />
         </Container>

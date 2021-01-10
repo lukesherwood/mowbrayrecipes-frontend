@@ -1,16 +1,17 @@
 import React from "react";
-import { fetchRecipes } from "../actions/recipeActions";
+import { fetchUserRecipes } from "../actions/recipeActions";
 import { connect } from "react-redux";
 import Recipes from "../components/Recipes";
 
-class RecipesContainer extends React.Component {
+class UserRecipesContainer extends React.Component {
   componentDidMount() {
-    this.props.fetchRecipes();
+    this.props.fetchUserRecipes();
   }
 
   render() {
     return (
       <div className="recipes-container">
+        {/* <CreateRecipeForm currentUser={this.props.user}/> */}
         <Recipes recipes={this.props.recipes}/>
       </div>
     );
@@ -26,8 +27,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchRecipes: () => dispatch(fetchRecipes()),
+    fetchUserRecipes: () => dispatch(fetchUserRecipes()),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(UserRecipesContainer);

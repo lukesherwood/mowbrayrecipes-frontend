@@ -24,6 +24,29 @@ export const fetchRecipes = () => {
   };
 };
 
+export const fetchUserRecipes = () => {
+  return (dispatch) => {
+    dispatch({ type: "LOADING_RECIPES" });
+    axios
+      .get("http://localhost:3001/api/v1/userRecipes", {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+    })
+      .then((data) => {
+        dispatch({ type: "ADD_RECIPES", recipes: data.data.data });
+      })
+      .catch(function (error) {
+        NotificationManager.error(
+          `Error while fetching recipes!, ${error}`,
+          "Error!"
+        );
+      });
+  };
+};
+
 export const createRecipe = (recipeInfo) => {
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });

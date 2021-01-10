@@ -11,6 +11,10 @@
     background-color: #f1f1f1;
 }
 
+.recipe-card {
+    width: 80%;
+}
+
 .navbar {
     font-size: x-large;
     background-color: #e3f2fd;

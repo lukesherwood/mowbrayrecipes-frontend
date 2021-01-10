@@ -15,12 +15,12 @@ export default function NavbarClass () {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav variant="pills" className="mr-auto">
-          { user ?
-         <Nav.Link as={NavLink} to='/recipes' exact>Recipes</Nav.Link>
-          : null}
-        {/* <>
-        <Nav.Link as={NavLink} to='/hikes' exact>Hikes</Nav.Link>
-        </> */}
+          { user ? (
+            <>
+            <Nav.Link as={NavLink} to='/user' exact>My Recipes</Nav.Link>
+            <Nav.Link as={NavLink} to='/createRecipe' exact>Create a Recipe</Nav.Link>
+              </>
+          ) : null}
         </Nav>
         <LogoutOrLogin/>
         </Navbar.Collapse>
