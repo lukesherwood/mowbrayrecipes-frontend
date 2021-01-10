@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button"
+import Button from "react-bootstrap/Button";
 import { createRecipe } from "../actions/recipeActions";
-
 
 class CreateRecipeForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      ingredients: "",
-      method: "",
-      notes: "",
-      imageUrl: "",
-    };
+    this.state = this.blankState;
   }
+
+  blankState = {
+    name: "",
+    ingredients: "",
+    method: "",
+    serves: "",
+    imageUrl: "",
+    course: "",
+    cuisine: "",
+    cookTime: "",
+    prepTime: "",
+  };
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,28 +31,47 @@ class CreateRecipeForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, ingredients, method, notes, imageUrl } = this.state;
-    let recipe = {
+    const {
+      name,
+      ingredients,
+      method,
+      serves,
+      imageUrl,
+      course,
+      cuisine,
+      prepTime,
+      cookTime,
+    } = this.state;
+    const recipe = {
       name: name,
       ingredients: ingredients,
       method: method,
-      notes: notes,
+      serves: serves,
       image_url: imageUrl,
-      user_id: this.props.currentUser.id,
+      user_id: this.props.currentUser.data.id,
+      cuisine: cuisine,
+      prep_time: prepTime,
+      cook_time: cookTime,
+      course: course,
     };
+    console.log(recipe, "submitted recipe")
     this.props.createRecipe(recipe);
-    this.setState({
-      name: "",
-      ingredients: "",
-      method: "",
-      notes: "",
-      imageUrl: "",
-    })
+    this.setState(this.blankState);
     // document.getElementById('toggle-new-list-form').click()
   };
 
   render() {
-    const { name, ingredients, method, notes, imageUrl} = this.state;
+    const {
+      name,
+      ingredients,
+      method,
+      serves,
+      imageUrl,
+      course,
+      prepTime,
+      cookTime,
+      cuisine,
+    } = this.state;
     return (
       <div className="recipe-card">
         <h3>Create a new Recipe</h3>
@@ -64,10 +88,45 @@ class CreateRecipeForm extends Component {
             />
           </Form.Group>
           <Form.Group>
+            <Form.Label size="sm"> Type of Course </Form.Label>
+            <Form.Control
+              as="select"
+              className="mb-2 mr-sm-2"
+              size="sm"
+              name="course"
+              onChange={(event) => this.handleChange(event)}
+              value={course}
+            >
+              <option value="">Select...</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Snack">Snack</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label size="sm"> Type of Cuisine </Form.Label>
+            <Form.Control
+              as="select"
+              className="mb-2 mr-sm-2"
+              size="sm"
+              name="cuisine"
+              onChange={(event) => this.handleChange(event)}
+              value={cuisine}
+              defaultValue="Choose..."
+            >
+              <option value="">Select...</option>
+              <option value="newZealand">New Zealand</option>
+              <option value="american">American</option>
+              <option value="hungarian">Hungarian</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group>
             <Form.Label size="sm"> Ingredients </Form.Label>
             <Form.Control
               className="mb-2 mr-sm-2"
-              as="textarea" 
+              as="textarea"
               rows={3}
               size="sm"
               name="ingredients"
@@ -78,7 +137,7 @@ class CreateRecipeForm extends Component {
           <Form.Group>
             <Form.Label size="sm"> Method </Form.Label>
             <Form.Control
-              as="textarea" 
+              as="textarea"
               rows={3}
               className="mb-2 mr-sm-2"
               size="sm"
@@ -88,15 +147,36 @@ class CreateRecipeForm extends Component {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label size="sm"> Notes </Form.Label>
+            <Form.Label size="sm"> Serves </Form.Label>
             <Form.Control
-              placeholder="For example: serves how many people, things to keep an eye out for, total duration of cooking."
               className="mb-2 mr-sm-2"
-              type="text"
+              type="number"
               size="sm"
-              name="notes"
+              name="serves"
               onChange={(event) => this.handleChange(event)}
-              value={notes}
+              value={serves}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label size="sm"> Cook Time (mins) </Form.Label>
+            <Form.Control
+              className="mb-2 mr-sm-2"
+              type="number"
+              size="sm"
+              name="cookTime"
+              onChange={(event) => this.handleChange(event)}
+              value={cookTime}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label size="sm"> Preparation Time (mins)</Form.Label>
+            <Form.Control
+              className="mb-2 mr-sm-2"
+              type="number"
+              size="sm"
+              name="prepTime"
+              onChange={(event) => this.handleChange(event)}
+              value={prepTime}
             />
           </Form.Group>
           <Form.Group>
