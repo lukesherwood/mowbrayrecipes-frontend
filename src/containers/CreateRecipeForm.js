@@ -56,7 +56,6 @@ class CreateRecipeForm extends Component {
       cook_time: cookTime,
       course: course,
     };
-    console.log(recipe, "submitted recipe");
     this.props.createRecipe(recipe);
     this.setState(this.blankState);
     // document.getElementById('toggle-new-list-form').click()
@@ -78,7 +77,7 @@ class CreateRecipeForm extends Component {
       <div className="recipe-card">
         <h3>Create a new Recipe</h3>
         <Form onSubmit={(event) => this.handleSubmit(event)}>
-            <Row>
+            <Row xs={1} sm ={2} md={3} lg={3}>
               <Col>
               <Form.Group>
                 <Form.Label size="sm"> Name </Form.Label>
@@ -125,14 +124,23 @@ class CreateRecipeForm extends Component {
               defaultValue="Choose..."
             >
               <option value="">Select...</option>
-              <option value="newZealand">New Zealand</option>
-              <option value="american">American</option>
-              <option value="hungarian">Hungarian</option>
+              <option value="African">African</option>
+              <option value="American">American</option>
+              <option value="Chinese">Chinese</option>
+              <option value="English">English</option>
+              <option value="Hungarian">Hungarian</option>
+              <option value="Indian">Indian</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Korean">Korean</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Middle-Eastern">Middle-Eastern</option>
+              <option value="New Zealand">New Zealand</option>
+              <option value="South American">South American</option>
+              <option value="Thai">Thai</option>
             </Form.Control>
           </Form.Group>
           </Col>
-          </Row>
-          <Row>
           <Col>
           <Form.Group>
             <Form.Label size="sm"> Serves </Form.Label>
@@ -177,8 +185,9 @@ class CreateRecipeForm extends Component {
             <Form.Label size="sm"> Ingredients </Form.Label>
             <Form.Control
               className="mb-2 mr-sm-2 overflow-hidden"
+              id="note"
               as="textarea"
-              rows={3}
+              rows={7}
               size="sm"
               name="ingredients"
               onChange={(event) => this.handleChange(event)}
@@ -189,7 +198,7 @@ class CreateRecipeForm extends Component {
             <Form.Label size="sm"> Method </Form.Label>
             <Form.Control
               as="textarea"
-              rows={3}
+              rows={7}
               className="mb-2 mr-sm-2"
               size="sm"
               name="method"
