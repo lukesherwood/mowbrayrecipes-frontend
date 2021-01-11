@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { createRecipe } from "../actions/recipeActions";
 
@@ -54,7 +56,7 @@ class CreateRecipeForm extends Component {
       cook_time: cookTime,
       course: course,
     };
-    console.log(recipe, "submitted recipe")
+    console.log(recipe, "submitted recipe");
     this.props.createRecipe(recipe);
     this.setState(this.blankState);
     // document.getElementById('toggle-new-list-form').click()
@@ -76,35 +78,41 @@ class CreateRecipeForm extends Component {
       <div className="recipe-card">
         <h3>Create a new Recipe</h3>
         <Form onSubmit={(event) => this.handleSubmit(event)}>
-          <Form.Group>
-            <Form.Label size="sm"> Name </Form.Label>
-            <Form.Control
-              type="text"
-              className="mb-2 mr-sm-2"
-              size="sm"
-              name="name"
-              onChange={(event) => this.handleChange(event)}
-              value={name}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label size="sm"> Type of Course </Form.Label>
-            <Form.Control
-              as="select"
-              className="mb-2 mr-sm-2"
-              size="sm"
-              name="course"
-              onChange={(event) => this.handleChange(event)}
-              value={course}
-            >
-              <option value="">Select...</option>
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Dinner">Dinner</option>
-              <option value="Dessert">Dessert</option>
-              <option value="Snack">Snack</option>
-            </Form.Control>
-          </Form.Group>
+            <Row>
+              <Col>
+              <Form.Group>
+                <Form.Label size="sm"> Name </Form.Label>
+                <Form.Control
+                  type="text"
+                  className="mb-2 mr-sm-2"
+                  size="sm"
+                  name="name"
+                  onChange={(event) => this.handleChange(event)}
+                  value={name}
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label size="sm"> Type of Course </Form.Label>
+                <Form.Control
+                  as="select"
+                  className="mb-2 mr-sm-2"
+                  size="sm"
+                  name="course"
+                  onChange={(event) => this.handleChange(event)}
+                  value={course}
+                >
+                  <option value="">Select...</option>
+                  <option value="Breakfast">Breakfast</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                  <option value="Dessert">Dessert</option>
+                  <option value="Snack">Snack</option>
+                </Form.Control>
+              </Form.Group>
+            </Col>
+            <Col>
           <Form.Group>
             <Form.Label size="sm"> Type of Cuisine </Form.Label>
             <Form.Control
@@ -122,10 +130,53 @@ class CreateRecipeForm extends Component {
               <option value="hungarian">Hungarian</option>
             </Form.Control>
           </Form.Group>
+          </Col>
+          </Row>
+          <Row>
+          <Col>
+          <Form.Group>
+            <Form.Label size="sm"> Serves </Form.Label>
+            <Form.Control
+              className="mb-2 mr-sm-2"
+              type="number"
+              size="sm"
+              name="serves"
+              onChange={(event) => this.handleChange(event)}
+              value={serves}
+            />
+          </Form.Group>
+          </Col>
+          <Col>
+          <Form.Group>
+            <Form.Label size="sm"> Cook Time (mins) </Form.Label>
+            <Form.Control
+              className="mb-2 mr-sm-2"
+              type="number"
+              size="sm"
+              name="cookTime"
+              onChange={(event) => this.handleChange(event)}
+              value={cookTime}
+            />
+          </Form.Group>
+          </Col>
+          <Col>
+          <Form.Group>
+            <Form.Label size="sm"> Preparation Time (mins)</Form.Label>
+            <Form.Control
+              className="mb-2 mr-sm-2"
+              type="number"
+              size="sm"
+              name="prepTime"
+              onChange={(event) => this.handleChange(event)}
+              value={prepTime}
+            />
+          </Form.Group>
+          </Col>
+          </Row>
           <Form.Group>
             <Form.Label size="sm"> Ingredients </Form.Label>
             <Form.Control
-              className="mb-2 mr-sm-2"
+              className="mb-2 mr-sm-2 overflow-hidden"
               as="textarea"
               rows={3}
               size="sm"
@@ -144,39 +195,6 @@ class CreateRecipeForm extends Component {
               name="method"
               onChange={(event) => this.handleChange(event)}
               value={method}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label size="sm"> Serves </Form.Label>
-            <Form.Control
-              className="mb-2 mr-sm-2"
-              type="number"
-              size="sm"
-              name="serves"
-              onChange={(event) => this.handleChange(event)}
-              value={serves}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label size="sm"> Cook Time (mins) </Form.Label>
-            <Form.Control
-              className="mb-2 mr-sm-2"
-              type="number"
-              size="sm"
-              name="cookTime"
-              onChange={(event) => this.handleChange(event)}
-              value={cookTime}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label size="sm"> Preparation Time (mins)</Form.Label>
-            <Form.Control
-              className="mb-2 mr-sm-2"
-              type="number"
-              size="sm"
-              name="prepTime"
-              onChange={(event) => this.handleChange(event)}
-              value={prepTime}
             />
           </Form.Group>
           <Form.Group>

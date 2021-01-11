@@ -1,20 +1,27 @@
-import React from 'react'
+import React from "react";
+import Card from "react-bootstrap/Card";
 
 export default function Recipe(props) {
-        const { recipe } = props;
-        console.log(recipe)
-        // doesn't work when you add a json recipe as props, but does work if direct from server in fast json api serializer format
+  const { recipe } = props;
   return (
-    <li className="recipe-card card" id={recipe.id + "-recipe-card"}>
-      <img src={recipe.attributes.image_url} alt={recipe.attributes.name} width="600"></img>
-      <div className="card-text">
-        <h3>{recipe.attributes.name}</h3>
-        <div className="recipe-card-info">
-          <div className="recipe-card-serves">Serves: {recipe.attributes.serves}</div>
-          <div className="recipe-card-ingredients">Ingredients: {recipe.attributes.ingredients}</div>
-          <div className="recipe-card-method">Method: {recipe.attributes.method}</div>
+    <Card className="recipe-card col mx-2 mb-3" id={recipe.id + "-recipe-card"}>
+      <Card.Img variant="top" src={recipe.attributes.image_url} />
+      <Card.Body>
+        <Card.Title>{recipe.attributes.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">
+          By: {recipe.attributes.user.name}
+        </Card.Subtitle>
+        <div className="recipe-card-left">
+          Course: {recipe.attributes.course}
+          <br></br>
+          Cuisine: {recipe.attributes.cuisine}
         </div>
-      </div>
-    </li>
-  )
+        <div className="recipe-card-right">
+          Cook Time: {recipe.attributes.cook_time}
+          <br></br>
+          Prep Time: {recipe.attributes.prep_time}
+        </div>
+      </Card.Body>
+    </Card>
+  );
 }
