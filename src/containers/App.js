@@ -1,6 +1,6 @@
 import "../App.css";
 import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { autoLogin } from "../actions/userActions";
 import SignUp from "./SignUp";
