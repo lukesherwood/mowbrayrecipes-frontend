@@ -4,9 +4,10 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import { createRecipe } from "../actions/recipeActions";
+import { updateRecipe } from "../actions/recipeActions";
 
-class CreateRecipeForm extends Component {
+
+export class RecipeUpdate extends Component {
   constructor(props) {
     super(props);
     this.state = this.blankState;
@@ -75,7 +76,7 @@ class CreateRecipeForm extends Component {
     } = this.state;
     return (
       <div className="recipe-card">
-        <h3>Create a new Recipe</h3>
+        <h3>Edit Recipe</h3>
         <Form onSubmit={(event) => this.handleSubmit(event)}>
             <Row xs={1} sm ={2} md={3} lg={3}>
               <Col>
@@ -217,7 +218,7 @@ class CreateRecipeForm extends Component {
             />
           </Form.Group>
           <Button variant="primary" type="submit">
-            Create Recipe
+            Update Recipe
           </Button>
         </Form>
       </div>
@@ -225,10 +226,16 @@ class CreateRecipeForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createRecipe: (recipeInfo) => dispatch(createRecipe(recipeInfo)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(CreateRecipeForm);
+        // const mapStateToProps = (state) => {
+        //     return {
+        //         recipe: state.recipes.recipes.find((r) => r.id === this.params.match.params.id)
+        //     }
+        // }
+        
+        const mapDispatchToProps = (dispatch) => {
+          return {
+            updateRecipe: (recipeInfo) => dispatch(updateRecipe(recipeInfo)),
+          };
+        };
+        
+        export default connect(null, mapDispatchToProps)(RecipeUpdate);

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export default function Recipe(props) {
   const { recipe } = props;
@@ -23,8 +23,11 @@ export default function Recipe(props) {
           Prep Time: {recipe.attributes.prep_time}
         </div>
         <Link className="btn btn-outline-primary" to={`/recipes/${recipe.id}`}>
-       More information
-      </Link>
+          More information
+        </Link>
+        <Link className="btn btn-outline-primary" to={`/recipes/${recipe.id}/update`}>
+         Update Recipe
+        </Link>
       </Card.Body>
     </Card>
   );

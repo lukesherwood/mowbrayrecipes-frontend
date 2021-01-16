@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchUserRecipes } from "../actions/recipeActions";
+import { fetchUserRecipes, updateRecipe } from "../actions/recipeActions";
 import { connect } from "react-redux";
 import Recipes from "../components/Recipes";
 
@@ -28,6 +28,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUserRecipes: () => dispatch(fetchUserRecipes()),
+    updateRecipe: () => dispatch(updateRecipe()),
   };
 };
 

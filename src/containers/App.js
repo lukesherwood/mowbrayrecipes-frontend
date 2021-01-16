@@ -2,11 +2,11 @@ import "../App.css";
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
 import { autoLogin } from "../actions/userActions";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import Home from "../components/Home";
+
 
 import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
@@ -17,6 +17,7 @@ import UserRecipesContainer from "./UserRecipesContainer";
 import CreateRecipeForm from "./CreateRecipeForm";
 import RecipeShow from "../components/RecipeShow";
 import { fetchRecipes } from "../actions/recipeActions";
+import RecipeUpdate from "./RecipeUpdate";
 
 class App extends Component {
   componentDidMount() {
@@ -24,12 +25,7 @@ class App extends Component {
     this.props.fetchRecipes();
   }
 
-  notAuth() {
-      alert(
-        "Please sign-in to access this page"
-      )
-      return <Redirect to="/signIn"/>
-  }
+  
 
   render() {
     return (
@@ -38,28 +34,37 @@ class App extends Component {
         <Container fluid>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/signIn" component={SignIn} />
+            <Route exact path="/signUp" component={SignUp} />
+            <Route
+              path="/recipes/:id/update"
+              render={(params) => (
+                // !this.props.loggedIn ? this.notAuth() : 
+                <RecipeUpdate recipes={this.props.recipes} params={params} />
+              )}
+            />
+            <Route exact path="/recipes" component={RecipesContainer} />
+            <Route
+              path="/recipes/:id"
+              render={(params) => (
+                <RecipeShow recipes={this.props.recipes} params={params} />
+              )}
+            />
             <Route
               exact
               path="/user"
               render={() =>
-                !this.props.loggedIn ? this.notAuth() : <UserRecipesContainer />
+                // !this.props.loggedIn ? this.notAuth() : 
+                <UserRecipesContainer />
               }
             />
             <Route
               exact
               path="/createRecipe"
               render={() =>
-                !this.props.loggedIn ? this.notAuth() : <CreateRecipeForm />
+                // !this.props.loggedIn ? this.notAuth() : 
+                <CreateRecipeForm currentUser={this.props.currentUser}/>
               }
-            />
-            <Route exact path="/signIn" component={SignIn} />
-            <Route exact path="/signUp" component={SignUp} />
-            <Route exact path="/recipes" component={RecipesContainer} />
-            <Route
-              path="/recipes/:id"
-              render={(params) => (
-                !this.props.loggedIn ? this.notAuth() : <RecipeShow recipes={this.props.recipes} params={params} />
-              )}
             />
             <Route render={() => <h1>404: page not found</h1>} />{" "}
             {/* make this a component */}
@@ -75,6 +80,7 @@ const mapStateToProps = (state) => {
   return {
     loggedIn: state.users.loggedIn,
     recipes: state.recipes.recipes,
+    currentUser: state.users.user
   };
 };
 
