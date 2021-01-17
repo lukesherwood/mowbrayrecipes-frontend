@@ -6,6 +6,7 @@ import FormComponent from "./FormComponent";
 class CreateRecipeForm extends Component {
 
   recipe = {
+    id: "", // how to get id of created recipe?
     attributes: {
     name: "",
     ingredients: "",
@@ -21,8 +22,6 @@ class CreateRecipeForm extends Component {
 
   handleSubmit = (recipe) => {
     this.props.createRecipe(recipe);
-    this.setState(recipe);
-    // document.getElementById('toggle-new-list-form').click()
   };
 
   render() {

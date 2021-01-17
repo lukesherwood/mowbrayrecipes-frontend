@@ -1,4 +1,5 @@
 import { NotificationManager } from "react-notifications";
+
 const axios = require("axios").default;
 
 export const fetchRecipes = () => {
@@ -64,7 +65,6 @@ export const createRecipe = (recipeInfo) => {
       )
       .then((data) => {
         dispatch({ type: "ADD_RECIPE", recipe: data.data.data });
-        // push to new recipe show page??
       })
       .catch(function (error) {
         NotificationManager.error(

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "react-bootstrap/Image";
 
+
 export default function RecipeShow(props) {
   const { recipes, params } = props;
   if (recipes) {
@@ -15,6 +16,7 @@ export default function RecipeShow(props) {
             fluid
           />
           <div>
+          <div ><b>Serves:</b> {recipe.attributes.serves}</div>
             <div ><b>Prep Time:</b> {recipe.attributes.prep_time} mins</div>
             <div><b>Cook Time:</b> {recipe.attributes.cook_time} mins</div>
             <div>
@@ -27,19 +29,19 @@ export default function RecipeShow(props) {
           <h4>Ingredients:</h4>
           <div>
             {recipe.attributes.ingredients.split(/\n/).map((line) => (
-              <div>{line}</div>
+              <div key={Date.now()+Math.random(100)}>{line}</div>
             ))}
           </div>
           {/* /n not rendering as new line, might need to remove later? */}
           <h4>Method:</h4>
           <div>
             {recipe.attributes.method.split(/\n/).map((line) => (
-              <div>{line}</div>
+              <div key={Date.now()+Math.random(100)}>{line}</div>
             ))}
           </div>
         </div>
       );
     }
   }
-  return <div>Sorry that recipe doesn't exist </div>; //better to render an error message
+  return null; //better to render an error message
 }
