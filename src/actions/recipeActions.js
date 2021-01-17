@@ -79,7 +79,7 @@ export const updateRecipe = (recipeInfo) => {
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
-      .post(
+      .patch(
         `http://localhost:3001/api/v1/recipes/${recipeInfo.id}`,
         { recipe: recipeInfo },
         {

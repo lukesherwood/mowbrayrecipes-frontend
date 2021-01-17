@@ -40,7 +40,7 @@ class App extends Component {
               path="/recipes/:id/update"
               render={(params) => (
                 // !this.props.loggedIn ? this.notAuth() : 
-                <RecipeUpdate recipes={this.props.recipes} params={params} />
+                <RecipeUpdate params={params} />
               )}
             />
             <Route exact path="/recipes" component={RecipesContainer} />

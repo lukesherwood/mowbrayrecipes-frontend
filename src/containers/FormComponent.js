@@ -41,14 +41,15 @@ class FormComponent extends Component {
       prep_time: prepTime,
       cook_time: cookTime,
       course: course,
+      id: this.props.recipe.id
     };
     this.props.handleSubmit(recipe);
   };
 
   render() {
+    const recipeAttributes = this.props.recipe.attributes
     return (
       <div className="recipe-card">
-        <h3>Recipe form</h3>
         <Form onSubmit={(event) => this.handleSubmit(event)}>
           <Row xs={1} sm={2} md={3} lg={3}>
             <Col>
@@ -60,7 +61,7 @@ class FormComponent extends Component {
                   size="sm"
                   name="name"
                   onChange={(event) => this.handleChange(event)}
-                  defaultValue={this.props.recipe.name}
+                  defaultValue={recipeAttributes.name}
                 />
               </Form.Group>
             </Col>
@@ -73,7 +74,7 @@ class FormComponent extends Component {
                   size="sm"
                   name="course"
                   onChange={(event) => this.handleChange(event)}
-                  defaultValue={this.props.recipe.course}
+                  defaultValue={recipeAttributes.course}
                 >
                   <option value="">Select...</option>
                   <option value="Breakfast">Breakfast</option>
@@ -93,7 +94,7 @@ class FormComponent extends Component {
                   size="sm"
                   name="cuisine"
                   onChange={(event) => this.handleChange(event)}
-                  defaultValue={this.props.recipe.cuisine}
+                  defaultValue={recipeAttributes.cuisine}
                 >
                   <option value="">Select...</option>
                   <option value="African">African</option>
@@ -122,7 +123,7 @@ class FormComponent extends Component {
                   size="sm"
                   name="serves"
                   onChange={(event) => this.handleChange(event)}
-                  defaultValue={this.props.recipe.serves}
+                  defaultValue={recipeAttributes.serves}
                 />
               </Form.Group>
             </Col>
@@ -135,7 +136,7 @@ class FormComponent extends Component {
                   size="sm"
                   name="cookTime"
                   onChange={(event) => this.handleChange(event)}
-                  defaultValue={this.props.recipe.cookTime}
+                  defaultValue={recipeAttributes.cook_time}
                 />
               </Form.Group>
             </Col>
@@ -148,7 +149,7 @@ class FormComponent extends Component {
                   size="sm"
                   name="prepTime"
                   onChange={(event) => this.handleChange(event)}
-                  defaultValue={this.props.recipe.prepTime}
+                  defaultValue={recipeAttributes.prep_time}
                 />
               </Form.Group>
             </Col>
@@ -163,7 +164,7 @@ class FormComponent extends Component {
               size="sm"
               name="ingredients"
               onChange={(event) => this.handleChange(event)}
-              defaultValue={this.props.recipe.ingredients}
+              defaultValue={recipeAttributes.ingredients}
             />
           </Form.Group>
           <Form.Group>
@@ -175,7 +176,7 @@ class FormComponent extends Component {
               size="sm"
               name="method"
               onChange={(event) => this.handleChange(event)}
-              defaultValue={this.props.recipe.method}
+              defaultValue={recipeAttributes.method}
             />
           </Form.Group>
           <Form.Group>
@@ -186,11 +187,11 @@ class FormComponent extends Component {
               size="sm"
               name="imageUrl"
               onChange={(event) => this.handleChange(event)}
-              defaultValue={this.props.recipe.imageUrl}
+              defaultValue={recipeAttributes.image_url}
             />
           </Form.Group>
           <Button variant="primary" type="submit">
-            Create Recipe
+            Submit Recipe
           </Button>
         </Form>
       </div>

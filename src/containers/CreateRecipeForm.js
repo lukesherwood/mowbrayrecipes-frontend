@@ -6,15 +6,17 @@ import FormComponent from "./FormComponent";
 class CreateRecipeForm extends Component {
 
   recipe = {
+    attributes: {
     name: "",
     ingredients: "",
     method: "",
     serves: "",
-    imageUrl: "",
+    image_url: "",
     course: "",
     cuisine: "",
-    cookTime: "",
-    prepTime: "",
+    cook_time: "",
+    prep_time: "",
+    }
   };
 
   handleSubmit = (recipe) => {
