@@ -55,10 +55,11 @@ export const autoLogin = () => (dispatch) => {
         },
       })
         .then((data) => {
-          if (data.message) {
+          console.log(data.data.data)
+          if (!data.data.data.id) {
             NotificationManager.error(`Error while signing in! ${data.message}`, 'Error!')
             localStorage.removeItem("token");
-          } else if(data.data.data.id) {
+          } else {
             dispatch(setUser(data.data));
             NotificationManager.success(`Welcome back, ${data.data.data.attributes.name}`, 'Successful!', 2000)
           }

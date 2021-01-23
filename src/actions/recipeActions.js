@@ -102,3 +102,32 @@ export const updateRecipe = (recipeInfo) => {
       });
   };
 };
+
+export const deleteRecipe = (inputRecipe) => {
+  const data = { recipe: inputRecipe };
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/v1/recipes/${inputRecipe.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then(() => {
+        dispatch({ type: "DELETE_RECIPE", recipe: inputRecipe });
+        NotificationManager.success(
+          `Successfully deleted your list, ${inputRecipe.attributes.name}`,
+          "Success!"
+        );
+      })
+      .catch(function (error) {
+        NotificationManager.error(
+          `Error while deleting list!, ${error}`,
+          "Error!"
+        );
+      });
+  };
+};

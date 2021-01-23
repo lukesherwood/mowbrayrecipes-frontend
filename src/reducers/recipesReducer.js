@@ -27,6 +27,13 @@ const recipesReducer = (state = { recipes: [], loading: false }, action) => {
         loading: false,
         recipes: newArray
     }
+    case 'DELETE_RECIPE':
+      return {
+          ...state, 
+          recipes: state.recipes.filter(r => r.id !== action.recipe.id), 
+          loading: false,
+          error: ''
+      }  
     default:
       return state;
   }

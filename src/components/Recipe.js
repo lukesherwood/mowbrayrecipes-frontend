@@ -1,9 +1,18 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Button from 'react-bootstrap/Button'
+import ButtonGroup from "react-bootstrap/ButtonGroup"
 import { Link } from "react-router-dom";
 
 export default function Recipe(props) {
+  
   const { recipe } = props;
+
+  function handleClick (inputRecipe) {
+    props.deleteRecipe(inputRecipe)
+    // change state so rerender
+  }
+
   return (
     <Card className="recipe-card col mx-2 mb-3" id={recipe.id + "-recipe-card"}>
       <Card.Img variant="top" src={recipe.attributes.image_url} />
@@ -22,13 +31,18 @@ export default function Recipe(props) {
           <br></br>
           Prep Time: {recipe.attributes.prep_time}
         </div>
-        <Link className="btn btn-outline-primary" to={`/recipes/${recipe.id}`}>
+      </Card.Body>
+        <ButtonGroup>
+        <Link className="btn btn-outline-primary btn-sm" to={`/recipes/${recipe.id}`}>
           More information
         </Link>
-        <Link className="btn btn-outline-primary" to={`/recipes/${recipe.id}/update`}>
-         Update Recipe
+        <Link className="btn btn-outline-warning btn-sm" to={`/recipes/${recipe.id}/update`}>
+         Update
         </Link>
-      </Card.Body>
+        <Button variant="outline-danger btn-sm" onClick={(e) => handleClick(recipe)}>
+         Delete
+        </Button>
+        </ButtonGroup>
     </Card>
   );
 }
