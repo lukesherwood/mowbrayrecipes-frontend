@@ -10,7 +10,7 @@ export default function Recipe(props) {
 
   function handleClick (inputRecipe) {
     props.deleteRecipe(inputRecipe)
-    // change state so rerender
+    // change state so re
   }
 
   return (
