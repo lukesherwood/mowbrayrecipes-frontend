@@ -1,17 +1,13 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from 'react-bootstrap/Button'
 import ButtonGroup from "react-bootstrap/ButtonGroup"
 import { Link } from "react-router-dom";
+import UserButtons from "./UserButtons";
+
 
 export default function Recipe(props) {
   
   const { recipe } = props;
-
-  function handleClick (inputRecipe) {
-    props.deleteRecipe(inputRecipe)
-    // change state so re
-  }
 
   return (
     <Card className="recipe-card col mx-2 mb-3" id={recipe.id + "-recipe-card"}>
@@ -35,13 +31,8 @@ export default function Recipe(props) {
         <ButtonGroup>
         <Link className="btn btn-outline-primary btn-sm" to={`/recipes/${recipe.id}`}>
           More information
-        </Link>
-        <Link className="btn btn-outline-warning btn-sm" to={`/recipes/${recipe.id}/update`}>
-         Update
-        </Link>
-        <Button variant="outline-danger btn-sm" onClick={(e) => handleClick(recipe)}>
-         Delete
-        </Button>
+        </Link>        
+        <UserButtons recipe={recipe} />
         </ButtonGroup>
     </Card>
   );

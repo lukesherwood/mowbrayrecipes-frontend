@@ -10,7 +10,6 @@ export default function Recipes(props) {
         <Recipe
           key={recipe.id}
           recipe={recipe}
-          deleteRecipe={props.deleteRecipe}
         />
       );
     });
