@@ -55,7 +55,7 @@ export const autoLogin = () => (dispatch) => {
         },
       })
         .then((data) => {
-          if (!data.data.data.id) {
+          if (!data.data.data.id) { // something goes wrong here
             NotificationManager.error(`Error while signing in! ${data.message}`, 'Error!')
             localStorage.removeItem("token");
           } else {

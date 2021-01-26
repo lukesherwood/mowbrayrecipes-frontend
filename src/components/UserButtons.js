@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { deleteRecipe } from "../actions/recipeActions";
 import { connect } from "react-redux";
 
-class UserButtons extends React.Component {
+class UserButtons extends React.Component { // could go back to functional component and useSelector
   handleClick(inputRecipe) {
     this.props.deleteRecipe(inputRecipe);
   }

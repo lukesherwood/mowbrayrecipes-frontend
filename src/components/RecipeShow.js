@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "react-bootstrap/Image";
+import moment from 'moment';
 
 
 export default function RecipeShow(props) {
@@ -16,6 +17,9 @@ export default function RecipeShow(props) {
             fluid
           />
           <div>
+            <div>by: {recipe.attributes.user.name}</div>
+          <div>Created: {moment(recipe.attributes.created_at).format("MMMM Do YYYY, h:mm:ss a")}</div>
+          <div>Updated: {moment(recipe.attributes.updated_at).format("MMMM Do YYYY, h:mm:ss a")}</div>
           <div ><b>Serves:</b> {recipe.attributes.serves}</div>
             <div ><b>Prep Time:</b> {recipe.attributes.prep_time} mins</div>
             <div><b>Cook Time:</b> {recipe.attributes.cook_time} mins</div>

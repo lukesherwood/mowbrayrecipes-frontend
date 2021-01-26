@@ -10,6 +10,8 @@
     "autosize": "^4.0.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
+    "moment": "^2.29.1",
+    "moment-jdateformatparser": "^1.2.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-axios": "^2.0.4",
