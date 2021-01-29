@@ -1,5 +1,6 @@
 import axios from "axios";
 import { NotificationManager } from 'react-notifications';
+const WEB_URL = "https://mowbrayrecipes.herokuapp.com/api/v1/"
 
 const setUser = (payload) => ({ type: "SET_USER", payload });
 
@@ -8,7 +9,7 @@ export const logUserOut = () => ({ type: "LOG_OUT" });
 export const signUserUp = (userInfo) => (dispatch) => {
   axios
     .post(
-      "http://localhost:3001/api/v1/users",
+      WEB_URL+"/users",
       { user: userInfo },
       { withCredentials: true }
     )
@@ -28,7 +29,7 @@ export const signUserUp = (userInfo) => (dispatch) => {
 export const fetchUser = (userInfo) => (dispatch) => {
   axios
     .post(
-      "http://localhost:3001/api/v1/users/sign_in",
+      WEB_URL+"/users/sign_in",
       { user: userInfo },
       { withCredentials: true }
     )
@@ -47,7 +48,7 @@ export const fetchUser = (userInfo) => (dispatch) => {
 export const autoLogin = () => (dispatch) => {
     const token = localStorage.token;
     if (token) {
-      axios.get("http://localhost:3001/api/v1/users/auto_login", {
+      axios.get(WEB_URL+"/users/auto_login", {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -55,7 +56,7 @@ export const autoLogin = () => (dispatch) => {
         },
       })
         .then((data) => {
-          if (!data.data.data.id) { // something goes wrong here
+          if (!data.data.data) { // something goes wrong here
             NotificationManager.error(`Error while signing in! ${data.message}`, 'Error!')
             localStorage.removeItem("token");
           } else {

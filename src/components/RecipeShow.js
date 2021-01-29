@@ -11,15 +11,17 @@ export default function RecipeShow(props) {
       return (
         <div className="recipe-item">
           <h2>{recipe.attributes.name}</h2>
+          <br></br>
           <Image
             alt={recipe.attributes.name}
             src={recipe.attributes.image_url}
             fluid
           />
           <div>
-            <div>by: {recipe.attributes.user.name}</div>
-          <div>Created: {moment(recipe.attributes.created_at).format("MMMM Do YYYY, h:mm:ss a")}</div>
-          <div>Updated: {moment(recipe.attributes.updated_at).format("MMMM Do YYYY, h:mm:ss a")}</div>
+            <br></br>
+            <div><b>By:</b> {recipe.attributes.user.name}</div>
+          <div><b>Created:</b> {moment(recipe.attributes.created_at).format("MMMM Do YYYY, h:mm a")}</div>
+          <div><b>Updated:</b> {moment(recipe.attributes.updated_at).format("MMMM Do YYYY, h:mm a")}</div>
           <div ><b>Serves:</b> {recipe.attributes.serves}</div>
             <div ><b>Prep Time:</b> {recipe.attributes.prep_time} mins</div>
             <div><b>Cook Time:</b> {recipe.attributes.cook_time} mins</div>
@@ -30,6 +32,7 @@ export default function RecipeShow(props) {
             <div><b>Cuisine:</b> {recipe.attributes.cuisine}</div>
             <div><b>Course:</b> {recipe.attributes.course}</div>
           </div>
+          <br></br>
           <h4>Ingredients:</h4>
           <div>
             {recipe.attributes.ingredients.split(/\n/).map((line) => (
@@ -37,12 +40,14 @@ export default function RecipeShow(props) {
             ))}
           </div>
           {/* /n not rendering as new line, might need to remove later? */}
+          <br></br>
           <h4>Method:</h4>
           <div>
             {recipe.attributes.method.split(/\n/).map((line) => (
               <div key={Date.now()+Math.random(100)}>{line}</div>
             ))}
           </div>
+          <br></br>
         </div>
       );
     }

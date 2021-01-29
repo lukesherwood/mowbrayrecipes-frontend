@@ -1,12 +1,13 @@
 import { NotificationManager } from "react-notifications";
 
 const axios = require("axios").default;
+const WEB_URL = "https://mowbrayrecipes.herokuapp.com/api/v1/"
 
 export const fetchRecipes = () => {
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
-      .get("http://localhost:3001/api/v1/recipes", {
+      .get(WEB_URL+"/recipes", {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -29,7 +30,7 @@ export const fetchUserRecipes = () => {
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
-      .get("http://localhost:3001/api/v1/userRecipes", {
+      .get(WEB_URL+"/userRecipes", {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -53,7 +54,7 @@ export const createRecipe = (recipeInfo) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
       .post(
-        "http://localhost:3001/api/v1/recipes",
+        WEB_URL+"/recipes",
         { recipe: recipeInfo },
         {
           headers: {
@@ -80,7 +81,7 @@ export const updateRecipe = (recipeInfo) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
       .patch(
-        `http://localhost:3001/api/v1/recipes/${recipeInfo.id}`,
+        WEB_URL+`/recipes/${recipeInfo.id}`,
         { recipe: recipeInfo },
         {
           headers: {
@@ -106,7 +107,7 @@ export const updateRecipe = (recipeInfo) => {
 export const deleteRecipe = (inputRecipe) => {
   const data = { recipe: inputRecipe };
   return (dispatch) => {
-    fetch(`http://localhost:3001/api/v1/recipes/${inputRecipe.id}`, {
+    fetch(WEB_URL+`/recipes/${inputRecipe.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
