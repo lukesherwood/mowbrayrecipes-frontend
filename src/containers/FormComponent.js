@@ -34,7 +34,7 @@ class FormComponent extends Component {
       method: method,
       serves: serves,
       image_url: imageUrl,
-      user_id: this.props.currentUser.data.id,
+      user_id: this.props.currentUser.id,
       cuisine: cuisine,
       prep_time: prepTime,
       cook_time: cookTime,
