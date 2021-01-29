@@ -1,8 +1,7 @@
 import {
     createStore, 
     applyMiddleware,
-    combineReducers,
-    compose
+    combineReducers
   } from 'redux';
 
   import thunk from 'redux-thunk';  
@@ -14,11 +13,5 @@ import {
     recipes
   });
   
-  const middleware = [thunk];
   
-  export default createStore(
-    reducers,
-    compose(
-      applyMiddleware(...middleware),
-    )
-  );
+  export default createStore(reducers, applyMiddleware(thunk));
