@@ -1,7 +1,10 @@
 import { NotificationManager } from "react-notifications";
+import { config } from '../Constants' 
+const WEB_URL = config.url.API_URL
+
 
 const axios = require("axios").default;
-const WEB_URL = "https://mowbrayrecipes.herokuapp.com/api/v1/"
+// const WEB_URL = "https://mowbrayrecipes.herokuapp.com/api/v1/"
 
 export const fetchRecipes = () => {
   return (dispatch) => {

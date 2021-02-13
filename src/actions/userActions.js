@@ -1,6 +1,9 @@
 import axios from "axios";
 import { NotificationManager } from 'react-notifications';
-const WEB_URL = "https://mowbrayrecipes.herokuapp.com/api/v1/"
+import { config } from '../Constants' 
+const WEB_URL = config.url.API_URL
+
+// const WEB_URL = "https://mowbrayrecipes.herokuapp.com/api/v1/"
 
 const setUser = (payload) => ({ type: "SET_USER", payload });
 
