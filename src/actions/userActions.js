@@ -21,7 +21,7 @@ export const signUserUp = (userInfo, ownProps) => (dispatch) => {
         dispatch(setUser(data.data));
         ownProps.history.push(`/`);
         NotificationManager.success(
-          `You have successfully signed up ${data.data.attributes.name}`,
+          `You have successfully signed up ${data.data.name}`,
           "Successful!",
           2000
         );
@@ -50,7 +50,7 @@ export const fetchUser = (userInfo, ownProps) => (dispatch) => {
         dispatch(setUser(data.data));
         ownProps.history.push(`/`);
         NotificationManager.success(
-          `You have successfully logged in ${data.data.attributes.name}`,
+          `You have successfully logged in ${data.data.name}`,
           "Successful!",
           2000
         );
@@ -73,8 +73,8 @@ export const autoLogin = () => (dispatch) => {
         },
       })
       .then((data) => {
+        console.log(data)
         if (!data.data.data) {
-          // something goes wrong here
           NotificationManager.error(
             `Error while signing in! ${data.message}`,
             "Error!"
