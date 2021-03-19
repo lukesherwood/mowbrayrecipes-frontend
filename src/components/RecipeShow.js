@@ -63,8 +63,7 @@ export default function RecipeShow(props) {
 					<Col>
 						<br></br>
 						<p> 
-							description will go here: This tangy, turmeric-stained, sheet-pan chicken makes the most of the schmaltzy bits left behind on the pan, 
-							which is deglazed with fresh garlic, briny olives and a bit of water. Think pan sauce, but done on a sheet pan.
+							{recipe.attributes.description}
 						</p>
 					</Col>
 				</Row>

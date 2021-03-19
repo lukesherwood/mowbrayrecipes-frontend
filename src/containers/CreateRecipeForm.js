@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createRecipe } from "../actions/recipeActions";
-import FormComponent from "./FormComponent";
+import FormComponent from "../components/FormComponent";
 
 class CreateRecipeForm extends Component {
 

@@ -27,6 +27,7 @@ class FormComponent extends Component {
       cuisine,
       prepTime,
       cookTime,
+      description,
     } = this.state;
     const recipe = {
       name: name,
@@ -34,10 +35,11 @@ class FormComponent extends Component {
       method: method,
       serves: serves,
       image_url: imageUrl,
-      user_id: this.props.currentUser.id,
+      user_id: this.props.currentUser.data.id,
       cuisine: cuisine,
       prep_time: prepTime,
       cook_time: cookTime,
+      description: description,
       course: course,
       id: this.props.recipe.id
     };
@@ -153,6 +155,18 @@ class FormComponent extends Component {
               </Form.Group>
             </Col>
           </Row>
+          <Form.Group>
+            <Form.Label size="sm"> Description </Form.Label>
+            <Form.Control
+              className="mb-2 mr-sm-2 overflow-hidden"
+              as="textarea"
+              rows={7}
+              size="sm"
+              name="description"
+              onChange={(event) => this.handleChange(event)}
+              defaultValue={recipeAttributes.description}
+            />
+          </Form.Group>
           <Form.Group>
             <Form.Label size="sm"> Ingredients </Form.Label>
             <Form.Control
