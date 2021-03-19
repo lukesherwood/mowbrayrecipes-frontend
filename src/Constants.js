@@ -1,6 +1,6 @@
 const prod = {
   url: {
-    API_URL: 'https://mowbrayrecipes.herokuapp.com/api/v1/',
+    API_URL: 'https://mowbrayrecipes.herokuapp.com/api/v1',
   },
 };
 const dev = {
