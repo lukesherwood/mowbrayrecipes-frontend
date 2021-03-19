@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LogoutOrLogin from '../containers/LogoutOrLogin'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import SearchRecipesForm from "../containers/SearchRecipesForm";
 
 
 class NavbarClass extends Component {
@@ -24,6 +25,7 @@ class NavbarClass extends Component {
           ) : null}
         </Nav>
         <LogoutOrLogin/>
+        <SearchRecipesForm/>
         </Navbar.Collapse>
       </Navbar>
     );

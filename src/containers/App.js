@@ -26,8 +26,6 @@ class App extends Component {
     this.props.fetchRecipes();
   }
 
-  
-
   render() {
     return (
       <div className="App">
@@ -66,7 +64,6 @@ class App extends Component {
               }
             />
             <Route render={() => <h1>404: page not found</h1>} />{" "}
-            {/* make this a component */}
           </Switch>
           <NotificationContainer />
         </Container>
