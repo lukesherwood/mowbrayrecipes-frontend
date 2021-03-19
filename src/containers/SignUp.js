@@ -4,120 +4,120 @@ import { withRouter, Link } from "react-router-dom";
 import { signUserUp } from "../actions/userActions";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
+import { Formik, Field, ErrorMessage} from "formik";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object().shape({
+  username: Yup.string()
+    .required("username is required")
+    .min(2, "Username is too short - should be 2 chars minimum"),
+  email: Yup.string().email().required("Email is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(6, "Password is too short - should be 6 chars minimum"),
+  password_confirmation: Yup.string()
+  .required("Confirmation password is required")
+  .oneOf(
+    [Yup.ref("password"), null],
+    "Passwords must match"
+  ),
+});
 
 class Signup extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
-      errors: "",
-    };
-  }
-
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { name, email, password, password_confirmation } = this.state;
-    let user = {
-      name: name,
-      email: email,
-      password: password,
-      password_confirmation: password_confirmation,
-    };
-    this.props.signUserUp(user);
-    this.props.history.push("/");
-  };
-
-  handleErrors = () => {
-    return (
-      <div>
-        <ul>
-          {this.state.errors.map((error) => {
-            return <li key={error}>{error}</li>;
-          })}
-        </ul>
-      </div>
-    );
-  };
 
   render() {
-    const { username, email, password, password_confirmation } = this.state;
     return (
-      <div>
+      <div className="sign-up-container">
         <h2>Sign Up</h2>
-        <Form onSubmit={(event) => this.handleSubmit(event)}>
-          <Form.Row>
-            <Col sm={4}>
-            <Form.Group>
-              <label>Name</label>
-              <Form.Control
-                type="text"
-                className="mb-2 mr-sm-2"
-                name="name"
-                onChange={(event) => this.handleChange(event)}
-                value={username}
-              />
-            </Form.Group>
-            </Col>
-          </Form.Row>
-          <Form.Row>
-          <Col sm={4}>
-            <Form.Group>
-              <Form.Label> Email </Form.Label>
-              <Form.Control
-                type="email"
-                className="mb-2 mr-sm-2"
-                name="email"
-                onChange={(event) => this.handleChange(event)}
-                value={email}
-              />
-            </Form.Group>
-            </Col>
-          </Form.Row>
-          <Form.Row>
-          <Col sm={4}>
-            <Form.Group>
-              <Form.Label> Password </Form.Label>
-              <Form.Control
-                type="password"
-                className="mb-2 mr-sm-2"
-                name="password"
-                onChange={(event) => this.handleChange(event)}
-                value={password}
-              />
-            </Form.Group>
-            </Col>
-          </Form.Row>
-          <Form.Row>
-          <Col sm={4}>
-            <Form.Group>
-              <Form.Label> Confirm Password </Form.Label>
-              <Form.Control
-                type="password"
-                className="mb-2 mr-sm-2"
-                name="password_confirmation"
-                onChange={(event) => this.handleChange(event)}
-                value={password_confirmation}
-              />
-            </Form.Group>
-            </Col>
-          </Form.Row>
-          <Button variant="primary" type="submit">
-            Sign Up
-          </Button>
-        </Form>
+        <Formik
+          initialValues={{ email: "", password: "", username: "", password_confirmation: "" }}
+          validationSchema={validationSchema}
+          onSubmit={(values, { setSubmitting, resetForm }) => {
+            setSubmitting(true);
+            const { username, email, password, password_confirmation } = values
+            let user = {
+              username,
+              email,
+              password,
+              password_confirmation,
+            };
+            this.props.signUserUp(user);
+            resetForm();
+            setSubmitting(false);
+          }}
+        >
+          {({ touched, errors, handleSubmit, isSubmitting }) => (
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label size="sm">Username</Form.Label>
+                    <Field
+                      className={'form-control ' + (errors.username && touched.username ? 'is-invalid' : '')}
+                      name="username"
+                    />
+                    <ErrorMessage
+                      name="username"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label size="sm">Email</Form.Label>
+                  <Field
+                      className={'form-control ' + (errors.email && touched.email ? 'is-invalid' : '')}
+                      name="email"
+                      type="email"
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label size="sm">Password</Form.Label>
+                    <Field
+                      className={
+                        "form-control " +
+                        (errors.password && touched.password
+                          ? "is-invalid"
+                          : "")
+                      }
+                      name="password"
+                      type="password"
+                    />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Field
+                      className={
+                        "form-control " +
+                        (errors.password_confirmation &&
+                        touched.password_confirmation
+                          ? "is-invalid"
+                          : "")
+                      }
+                      name="password_confirmation"
+                      type="password"
+                    />
+                    <ErrorMessage
+                      name="password_confirmation"
+                      component="div"
+                      className="invalid-feedback"
+                    />
+                  </Form.Group>
+              <Button variant="primary" type="submit" disabled={isSubmitting}>
+                Sign Up
+              </Button>
+            </Form>
+          )}
+        </Formik>
         <br></br>
-        <div>
+        <div className="p-20">
           Already have an account? <Link to="/signIn">Sign In</Link>
         </div>
       </div>
@@ -125,9 +125,9 @@ class Signup extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    signUserUp: (userInfo) => dispatch(signUserUp(userInfo)),
+    signUserUp: (userInfo) => dispatch(signUserUp(userInfo, ownProps)),
   };
 };
 

@@ -57,7 +57,7 @@ class SearchRecipesForm extends Component {
             handleSubmit,
             isSubmitting,
           }) => (
-            <Form className="row pr-20 vertical-center" onSubmit={handleSubmit}>
+            <Form className="row vertical-center" onSubmit={handleSubmit}>
               <Form.Group className="col-9 pr-0 col-md-8">
                 <Field
                   type="search"

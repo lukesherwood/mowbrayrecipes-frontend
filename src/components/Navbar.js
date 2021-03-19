@@ -10,7 +10,7 @@ import SearchRecipesForm from "../containers/SearchRecipesForm";
 class NavbarClass extends Component {
     render () {
       return (
-      <Navbar collapseOnSelect expand="sm" bg="navbar-light" variant="light">
+      <Navbar collapseOnSelect expand="md" bg="navbar-light" variant="light">
         <Navbar.Brand as={NavLink} to='/'>
           <img src="/mowbray family recipes logo.png" alt="mowbray logo" width="200x"/>
         </Navbar.Brand>
@@ -20,7 +20,7 @@ class NavbarClass extends Component {
           { this.props.loggedIn ? (
             <>
             <Nav.Link as={NavLink} to='/user' exact>My Recipes</Nav.Link>
-            <Nav.Link as={NavLink} to='/createRecipe' exact>Create a Recipe</Nav.Link>
+            <Nav.Link as={NavLink} to='/createRecipe' exact>New Recipe</Nav.Link>
               </>
           ) : null}
         </Nav>

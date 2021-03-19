@@ -25,7 +25,7 @@ class LogoutLogin extends React.Component {
         ) : (
           <Nav variant="pills">
           <Nav.Link onClick={this.handleClick}>
-            Sign out
+            Log out
           </Nav.Link>
           </Nav>
         )}

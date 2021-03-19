@@ -18,6 +18,14 @@ body {
   padding-bottom: 40px;
 }
 
+.sign-up-container {
+  width: 30%;
+}
+
+.sign-in-container {
+  width: 30%;
+}
+
 .recipe-header {
   padding: 10px;
   background-color: #005592;
@@ -125,8 +133,16 @@ body {
 
 @media only screen and (max-width: 1000px) {
   
+  .sign-in-container {
+    width: 100%;
+  }
+
+  .sign-up-container {
+    width: 100%;
+  }
   .recipe-item-page {
     width: 100%;
     /* justify-content: center; */
   }
+
 }
