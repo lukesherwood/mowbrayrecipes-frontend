@@ -27,7 +27,7 @@ class CreateRecipeForm extends Component {
   render() {
     return (
       <div className="recipe-card">
-        <h3>Create a new Recipe</h3>
+        <h3 className="recipe-header">Create a new Recipe</h3>
         <FormComponent recipe={this.recipe} handleSubmit={this.handleSubmit} currentUser={this.props.currentUser}/>
       </div>
     );

@@ -14,7 +14,7 @@ export default function Recipes(props) {
       );
     });
     return (
-      <div className="recipe-card-align-left">
+      <div className="">
         <Row xs={1} sm={2} md={3} lg={4} className="justify-content-center">
           {recipesList}
         </Row>

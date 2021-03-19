@@ -1,4 +1,6 @@
 import React from "react";
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Image from "react-bootstrap/Image";
 import moment from 'moment';
 
@@ -9,45 +11,103 @@ export default function RecipeShow(props) {
     let recipe = recipes.find((r) => r.id === params.match.params.id);
     if (recipe) {
       return (
-        <div className="recipe-item">
-          <h2>{recipe.attributes.name}</h2>
-          <br></br>
-          <Image
-            alt={recipe.attributes.name}
-            src={recipe.attributes.image_url}
-            fluid
-          />
-          <div>
-            <br></br>
-            <div><b>By:</b> {recipe.attributes.user.name}</div>
-          <div><b>Created:</b> {moment(recipe.attributes.created_at).format("MMMM Do YYYY, h:mm a")}</div>
-          <div><b>Updated:</b> {moment(recipe.attributes.updated_at).format("MMMM Do YYYY, h:mm a")}</div>
-          <div ><b>Serves:</b> {recipe.attributes.serves}</div>
-            <div ><b>Prep Time:</b> {recipe.attributes.prep_time} mins</div>
-            <div><b>Cook Time:</b> {recipe.attributes.cook_time} mins</div>
-            <div>
-              <b>Total Time: </b>
-              {recipe.attributes.prep_time + recipe.attributes.cook_time} mins
+        <div className="recipe-item-page border">
+          <div className="recipe-header">
+            <h1>{recipe.attributes.name}</h1>
+            <div className='recipe-subhead'>
+              <span className='recipe-yield-time'>By: </span>
+              {recipe.attributes.user.name}
             </div>
-            <div><b>Cuisine:</b> {recipe.attributes.cuisine}</div>
-            <div><b>Course:</b> {recipe.attributes.course}</div>
-          </div>
           <br></br>
-          <h4>Ingredients:</h4>
-          <div>
-            {recipe.attributes.ingredients.split(/\n/).map((line) => (
-              <div key={Date.now()+Math.random(100)}>{line}</div>
-            ))}
-          </div>
-          {/* /n not rendering as new line, might need to remove later? */}
-          <br></br>
-          <h4>Method:</h4>
-          <div>
-            {recipe.attributes.method.split(/\n/).map((line) => (
-              <div key={Date.now()+Math.random(100)}>{line}</div>
-            ))}
-          </div>
-          <br></br>
+          <Row xs={1} md={2} lg={2}>
+            <Col>
+              <Row>
+					<Col className='col-4'>
+						<h6>
+							<span className='recipe-yield-time'>Total Time: </span><br></br>
+							<span>{recipe.attributes.prep_time + recipe.attributes.cook_time} mins</span>
+						</h6>
+					</Col>
+					<Col className='col-4'>
+						<h6>
+							<span className='recipe-yield-time'>Prep Time: </span><br></br>
+							<span>{recipe.attributes.prep_time} mins </span>
+						</h6>
+					</Col>
+					<Col className='col-4'>
+						<h6>
+							<span className='recipe-yield-time'>Cook Time: </span><br></br>
+							<span>{recipe.attributes.cook_time} mins </span>
+						</h6>
+					</Col>
+					<div className="w-100 d-none d-md-block"></div>
+					<Col className='col-4'>
+						<h6>
+							<span className='recipe-yield-time'>Servings: </span><br></br>
+							<span>{recipe.attributes.serves}</span>
+						</h6>
+					</Col>
+					<Col className='col-4'>
+						<div>
+							<span className='recipe-yield-time'>Cuisine: </span><br></br> 
+							{recipe.attributes.cuisine}
+						</div>
+					</Col>
+					<Col className='col-4'>
+						<div>
+						<span className='recipe-yield-time'>Course: </span><br></br>
+							{recipe.attributes.course}
+						</div>
+					</Col> 
+					<div className="w-100 d-none d-md-block"></div>
+					<Col>
+						<br></br>
+						<p> 
+							description will go here: This tangy, turmeric-stained, sheet-pan chicken makes the most of the schmaltzy bits left behind on the pan, 
+							which is deglazed with fresh garlic, briny olives and a bit of water. Think pan sauce, but done on a sheet pan.
+						</p>
+					</Col>
+				</Row>
+			</Col>    
+            <Col>
+              <Image
+                className="float-right"
+                width="600px"
+                alt={recipe.attributes.name}
+                src={recipe.attributes.image_url}
+                fluid
+              />
+            </Col>              
+		</Row>
+		</div>
+		<br></br>
+		<div className="recipe-main">
+		<section>
+			<h4>Ingredients:</h4>
+			<ul>
+				{recipe.attributes.ingredients.split(/\n/).map((line) => (
+				<li key={Date.now()+Math.random(100)}>{line}</li>
+				))}
+			</ul>
+		</section>
+		<br></br>
+        <section>
+			<h4>Method:</h4>
+			<ol>
+				{recipe.attributes.method.split(/\n/).map((line) => (
+				<li key={Date.now()+Math.random(100)}>{line}</li>
+				))}
+			</ol>
+          </section>
+		  <br></br>
+		  </div>
+		  <div className="recipe-footer">
+		  <Row className="justify-content-md-center">
+          <Col lg="6">
+            <b>Last Updated:</b> {moment(recipe.attributes.updated_at).format("MMMM Do YYYY, h:mm a")}
+          </Col>
+		  </Row>
+		  </div>
         </div>
       );
     }

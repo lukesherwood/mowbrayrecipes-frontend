@@ -1,4 +1,4 @@
-import "../App.css";
+import "../App.scss";
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
@@ -37,6 +37,7 @@ class App extends Component {
             <Route exact path="/signUp" component={SignUp} />
             <AuthRoutes
               path="/recipes/:id/update"
+              loggedIn={this.props.loggedIn}
               render={(params) => (
                 <RecipeUpdate params={params} />
               )}

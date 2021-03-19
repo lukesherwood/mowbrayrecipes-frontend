@@ -6,14 +6,47 @@ body {
   min-height: 100vh; /* will cover the 100% of viewport */
   position: relative;
   padding-top: 20px;
+  display: flex;
+  justify-content: center;
 }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   padding-left: 0px;
   padding-bottom: 40px;
-  /* justify-content: center; */
+}
+
+.recipe-header {
+  padding: 10px;
+  background-color: #005592;
+  color: white;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #005592 !important;
+  color: white !important;
+}
+
+.recipe-yield-time {
+  font-size: 1.2rem;
+  letter-spacing: .5px;
+  line-height: 19px;
+  box-sizing: border-box;
+}
+
+.recipe-item-page {
+  width: 75%;
+
+}
+.recipe-main {
+  padding: 10px;
+  line-height: 1.7rem;
+}
+
+.recipe-footer {
+  background-color: rgb(240, 240, 240);
 }
 
 .navbar {
@@ -67,12 +100,18 @@ body {
   float: right;
 }
 
-.recipe-card {
-  padding-right: 0px;
-  padding-left: 0px;
-}
 
 @media only screen and (max-width: 600px) {
+
+  .recipe-item-page {
+    width: 100%;
+    /* justify-content: center; */
+  }
+
+  .container-fluid {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 
   .card {
       min-width: 320px;
@@ -83,3 +122,11 @@ body {
     padding-left: 0;
   }
 } 
+
+@media only screen and (max-width: 1000px) {
+  
+  .recipe-item-page {
+    width: 100%;
+    /* justify-content: center; */
+  }
+}

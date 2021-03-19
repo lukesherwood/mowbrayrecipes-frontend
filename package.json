@@ -14,6 +14,7 @@
     "fuse.js": "^6.4.6",
     "moment": "^2.29.1",
     "moment-jdateformatparser": "^1.2.1",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-axios": "^2.0.4",
