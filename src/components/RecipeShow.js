@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from "react-bootstrap/Image";
 import moment from 'moment';
+import UserButtons from './UserButtons'
 
 
 export default function RecipeShow(props) {
@@ -99,6 +100,7 @@ export default function RecipeShow(props) {
 			</ol>
           </section>
 		  <br></br>
+			<UserButtons recipe={recipe}/>
 		  </div>
 		  <div className="recipe-footer">
 		  <Row className="justify-content-md-center">
@@ -111,5 +113,5 @@ export default function RecipeShow(props) {
       );
     }
   }
-  return null; //better to render an error message
+  return null;
 }
