@@ -19,21 +19,23 @@ const recipesReducer = (state = { recipes: [], loading: false }, action) => {
         recipes: [...state.recipes, action.recipe],
       };
     case "UPDATE_RECIPE":
-        const index = state.recipes.findIndex(recipe => recipe.id === action.recipe.id)
-        const newArray = [...state.recipes]
-        newArray[index] = action.recipe   
-    return {
+      const index = state.recipes.findIndex(
+        (recipe) => recipe.id === action.recipe.id
+      );
+      const newArray = [...state.recipes];
+      newArray[index] = action.recipe;
+      return {
         ...state,
         loading: false,
-        recipes: newArray
-    }
-    case 'DELETE_RECIPE':
+        recipes: newArray,
+      };
+    case "DELETE_RECIPE":
       return {
-          ...state, 
-          recipes: state.recipes.filter(r => r.id !== action.recipe.id), 
-          loading: false,
-          error: ''
-      }  
+        ...state,
+        recipes: state.recipes.filter((r) => r.id !== action.recipe.id),
+        loading: false,
+        error: "",
+      };
     default:
       return state;
   }

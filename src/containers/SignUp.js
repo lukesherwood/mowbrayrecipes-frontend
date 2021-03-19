@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import { signUserUp } from "../actions/userActions";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Formik, Field, ErrorMessage} from "formik";
+import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
@@ -16,25 +16,26 @@ const validationSchema = Yup.object().shape({
     .required("Password is required")
     .min(6, "Password is too short - should be 6 chars minimum"),
   password_confirmation: Yup.string()
-  .required("Confirmation password is required")
-  .oneOf(
-    [Yup.ref("password"), null],
-    "Passwords must match"
-  ),
+    .required("Confirmation password is required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
 });
 
 class Signup extends Component {
-
   render() {
     return (
       <div className="sign-up-container">
         <h2>Sign Up</h2>
         <Formik
-          initialValues={{ email: "", password: "", username: "", password_confirmation: "" }}
+          initialValues={{
+            email: "",
+            password: "",
+            username: "",
+            password_confirmation: "",
+          }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
-            const { username, email, password, password_confirmation } = values
+            const { username, email, password, password_confirmation } = values;
             let user = {
               username,
               email,
@@ -48,68 +49,72 @@ class Signup extends Component {
         >
           {({ touched, errors, handleSubmit, isSubmitting }) => (
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label size="sm">Username</Form.Label>
-                    <Field
-                      className={'form-control ' + (errors.username && touched.username ? 'is-invalid' : '')}
-                      name="username"
-                    />
-                    <ErrorMessage
-                      name="username"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                  <Form.Label size="sm">Email</Form.Label>
-                  <Field
-                      className={'form-control ' + (errors.email && touched.email ? 'is-invalid' : '')}
-                      name="email"
-                      type="email"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label size="sm">Password</Form.Label>
-                    <Field
-                      className={
-                        "form-control " +
-                        (errors.password && touched.password
-                          ? "is-invalid"
-                          : "")
-                      }
-                      name="password"
-                      type="password"
-                    />
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Field
-                      className={
-                        "form-control " +
-                        (errors.password_confirmation &&
-                        touched.password_confirmation
-                          ? "is-invalid"
-                          : "")
-                      }
-                      name="password_confirmation"
-                      type="password"
-                    />
-                    <ErrorMessage
-                      name="password_confirmation"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </Form.Group>
+              <Form.Group>
+                <Form.Label size="sm">Username</Form.Label>
+                <Field
+                  className={
+                    "form-control " +
+                    (errors.username && touched.username ? "is-invalid" : "")
+                  }
+                  name="username"
+                />
+                <ErrorMessage
+                  name="username"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label size="sm">Email</Form.Label>
+                <Field
+                  className={
+                    "form-control " +
+                    (errors.email && touched.email ? "is-invalid" : "")
+                  }
+                  name="email"
+                  type="email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label size="sm">Password</Form.Label>
+                <Field
+                  className={
+                    "form-control " +
+                    (errors.password && touched.password ? "is-invalid" : "")
+                  }
+                  name="password"
+                  type="password"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Confirm Password</Form.Label>
+                <Field
+                  className={
+                    "form-control " +
+                    (errors.password_confirmation &&
+                    touched.password_confirmation
+                      ? "is-invalid"
+                      : "")
+                  }
+                  name="password_confirmation"
+                  type="password"
+                />
+                <ErrorMessage
+                  name="password_confirmation"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </Form.Group>
               <Button variant="primary" type="submit" disabled={isSubmitting}>
                 Sign Up
               </Button>

@@ -6,12 +6,7 @@ export default function Recipes(props) {
   let { recipes } = props;
   if (recipes) {
     const recipesList = recipes.map((recipe) => {
-      return (
-        <Recipe
-          key={recipe.id}
-          recipe={recipe}
-        />
-      );
+      return <Recipe key={recipe.id} recipe={recipe} />;
     });
     return (
       <div className="">

@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required("Email is required"),
   password: Yup.string()
@@ -38,41 +37,39 @@ class SignIn extends Component {
         >
           {({ touched, errors, handleSubmit, isSubmitting }) => (
             <Form onSubmit={handleSubmit}>
-                  <Form.Group>
-                    <Form.Label size="sm">Email</Form.Label>
-                    <Field
-                      className={
-                        "form-control " +
-                        (errors.email && touched.email ? "is-invalid" : "")
-                      }
-                      size="sm"
-                      name="email"
-                      type="email"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label size="sm">Password</Form.Label>
-                    <Field
-                      className={
-                        "form-control " +
-                        (errors.password && touched.password
-                          ? "is-invalid"
-                          : "")
-                      }
-                      name="password"
-                      type="password"
-                    />
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </Form.Group>
+              <Form.Group>
+                <Form.Label size="sm">Email</Form.Label>
+                <Field
+                  className={
+                    "form-control " +
+                    (errors.email && touched.email ? "is-invalid" : "")
+                  }
+                  size="sm"
+                  name="email"
+                  type="email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label size="sm">Password</Form.Label>
+                <Field
+                  className={
+                    "form-control " +
+                    (errors.password && touched.password ? "is-invalid" : "")
+                  }
+                  name="password"
+                  type="password"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </Form.Group>
               <Button variant="primary" type="submit" disabled={isSubmitting}>
                 Sign In
               </Button>
@@ -89,7 +86,7 @@ class SignIn extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.users.loggedIn
+    loggedIn: state.users.loggedIn,
   };
 };
 

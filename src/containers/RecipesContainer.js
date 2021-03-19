@@ -3,7 +3,6 @@ import { fetchRecipes, deleteRecipe } from "../actions/recipeActions";
 import { connect } from "react-redux";
 import Recipes from "../components/Recipes";
 
-
 class RecipesContainer extends React.Component {
   componentDidMount() {
     this.props.fetchRecipes();
@@ -13,7 +12,10 @@ class RecipesContainer extends React.Component {
     return (
       <div className="recipes-container">
         <h3 className="recipe-header">Recipes</h3>
-        <Recipes recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe}/>
+        <Recipes
+          recipes={this.props.recipes}
+          deleteRecipe={this.props.deleteRecipe}
+        />
       </div>
     );
   }
@@ -22,7 +24,7 @@ class RecipesContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     recipes: state.recipes.recipes,
-    user: state.users.user
+    user: state.users.user,
   };
 };
 

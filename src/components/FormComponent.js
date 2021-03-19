@@ -5,9 +5,7 @@ import Form from "react-bootstrap/Form";
 import { withRouter } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-
 class FormComponent extends Component {
-
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -41,14 +39,14 @@ class FormComponent extends Component {
       cook_time: cookTime,
       description: description,
       course: course,
-      id: this.props.recipe.id
+      id: this.props.recipe.id,
     };
-    this.props.handleSubmit(recipe)
-    this.props.history.push(`/recipes/${recipe.id}`) // recipe.id doesn't work if create recipe
+    this.props.handleSubmit(recipe);
+    this.props.history.push(`/recipes/${recipe.id}`); // recipe.id doesn't work if create recipe
   };
 
   render() {
-    const recipeAttributes = this.props.recipe.attributes
+    const recipeAttributes = this.props.recipe.attributes;
     return (
       <div className="recipe-card">
         <Form onSubmit={(event) => this.handleSubmit(event)}>
@@ -212,4 +210,4 @@ class FormComponent extends Component {
   }
 }
 
-export default withRouter(FormComponent)
+export default withRouter(FormComponent);

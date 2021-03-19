@@ -4,20 +4,19 @@ import { createRecipe } from "../actions/recipeActions";
 import FormComponent from "../components/FormComponent";
 
 class CreateRecipeForm extends Component {
-
   recipe = {
     id: "", // how to get id of created recipe?
     attributes: {
-    name: "",
-    ingredients: "",
-    method: "",
-    serves: "",
-    image_url: "",
-    course: "",
-    cuisine: "",
-    cook_time: "",
-    prep_time: "",
-    }
+      name: "",
+      ingredients: "",
+      method: "",
+      serves: "",
+      image_url: "",
+      course: "",
+      cuisine: "",
+      cook_time: "",
+      prep_time: "",
+    },
   };
 
   handleSubmit = (recipe) => {
@@ -28,7 +27,11 @@ class CreateRecipeForm extends Component {
     return (
       <div className="recipe-card">
         <h3 className="recipe-header">Create a new Recipe</h3>
-        <FormComponent recipe={this.recipe} handleSubmit={this.handleSubmit} currentUser={this.props.currentUser}/>
+        <FormComponent
+          recipe={this.recipe}
+          handleSubmit={this.handleSubmit}
+          currentUser={this.props.currentUser}
+        />
       </div>
     );
   }

@@ -10,11 +10,10 @@ class UserRecipesContainer extends React.Component {
 
   render() {
     return (
-      
       <div className="recipes-container">
         <h3 className="recipe-header">Your Recipes</h3>
         {/* <CreateRecipeForm currentUser={this.props.user}/> */}
-        <Recipes recipes={this.props.recipes}/>
+        <Recipes recipes={this.props.recipes} />
       </div>
     );
   }
@@ -23,7 +22,7 @@ class UserRecipesContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     recipes: state.recipes.recipes,
-    user: state.users.user
+    user: state.users.user,
   };
 };
 
@@ -34,4 +33,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserRecipesContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserRecipesContainer);

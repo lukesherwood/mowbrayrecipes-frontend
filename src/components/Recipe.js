@@ -1,12 +1,10 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ButtonGroup from "react-bootstrap/ButtonGroup"
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Link } from "react-router-dom";
 import UserButtons from "./UserButtons";
 
-
 export default function Recipe(props) {
-  
   const { recipe } = props;
 
   return (
@@ -28,12 +26,15 @@ export default function Recipe(props) {
           Prep Time: {recipe.attributes.prep_time}
         </div>
       </Card.Body>
-        <ButtonGroup>
-        <Link className="btn btn-outline-primary btn-sm" to={`/recipes/${recipe.id}`}>
+      <ButtonGroup>
+        <Link
+          className="btn btn-outline-primary btn-sm"
+          to={`/recipes/${recipe.id}`}
+        >
           More information
-        </Link>        
+        </Link>
         <UserButtons recipe={recipe} />
-        </ButtonGroup>
+      </ButtonGroup>
     </Card>
   );
 }

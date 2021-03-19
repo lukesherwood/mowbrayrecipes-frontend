@@ -7,7 +7,6 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import Home from "../components/Home";
 
-
 import "react-notifications/lib/notifications.css";
 import { NotificationContainer } from "react-notifications";
 import Container from "react-bootstrap/Container";
@@ -38,9 +37,7 @@ class App extends Component {
             <AuthRoutes
               path="/recipes/:id/update"
               loggedIn={this.props.loggedIn}
-              render={(params) => (
-                <RecipeUpdate params={params} />
-              )}
+              render={(params) => <RecipeUpdate params={params} />}
             />
             <Route exact path="/recipes" component={RecipesContainer} />
             <Route
@@ -60,9 +57,9 @@ class App extends Component {
               exact
               path="/createRecipe"
               loggedIn={this.props.loggedIn}
-              render={() =>
-                <CreateRecipeForm currentUser={this.props.currentUser}/>
-              }
+              render={() => (
+                <CreateRecipeForm currentUser={this.props.currentUser} />
+              )}
             />
             <Route render={() => <h1>404: page not found</h1>} />{" "}
           </Switch>
@@ -77,7 +74,7 @@ const mapStateToProps = (state) => {
   return {
     loggedIn: state.users.loggedIn,
     recipes: state.recipes.recipes,
-    currentUser: state.users.user
+    currentUser: state.users.user,
   };
 };
 
