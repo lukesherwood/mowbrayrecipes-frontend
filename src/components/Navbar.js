@@ -24,8 +24,8 @@ class NavbarClass extends Component {
               </>
           ) : null}
         </Nav>
-        <LogoutOrLogin/>
         <SearchRecipesForm/>
+        <LogoutOrLogin/>
         </Navbar.Collapse>
       </Navbar>
     );

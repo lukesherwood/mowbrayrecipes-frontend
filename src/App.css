@@ -7,6 +7,15 @@ body {
   position: relative;
   padding-top: 20px;
 }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding-left: 0px;
+  padding-bottom: 40px;
+  /* justify-content: center; */
+}
+
 .navbar {
   font-size: x-large;
   background-color: #e3f2fd;
@@ -43,6 +52,13 @@ body {
   object-fit: cover;
 }
 
+.search-form {
+  padding-right: 40px;
+}
+
+.vertical-center {
+  padding-top: 20px;
+}
 
 .recipe-card-left {
   float: left;
@@ -60,5 +76,10 @@ body {
 
   .card {
       min-width: 320px;
+  }
+
+  .modal-body {
+    width: 100%;
+    padding-left: 0;
   }
 } 
