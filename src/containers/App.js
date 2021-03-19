@@ -18,6 +18,7 @@ import CreateRecipeForm from "./CreateRecipeForm";
 import RecipeShow from "../components/RecipeShow";
 import { fetchRecipes } from "../actions/recipeActions";
 import RecipeUpdate from "./RecipeUpdate";
+import AuthRoutes from "../components/AuthRoutes";
 
 class App extends Component {
   componentDidMount() {
@@ -36,33 +37,31 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/signIn" component={SignIn} />
             <Route exact path="/signUp" component={SignUp} />
-            <Route
+            <AuthRoutes
               path="/recipes/:id/update"
               render={(params) => (
-                // !this.props.loggedIn ? this.notAuth() : 
                 <RecipeUpdate params={params} />
               )}
             />
             <Route exact path="/recipes" component={RecipesContainer} />
             <Route
               path="/recipes/:id"
+              loggedIn={this.props.loggedIn}
               render={(params) => (
                 <RecipeShow recipes={this.props.recipes} params={params} />
               )}
             />
-            <Route
+            <AuthRoutes
               exact
               path="/user"
-              render={() =>
-                // !this.props.loggedIn ? this.notAuth() : 
-                <UserRecipesContainer />
-              }
+              loggedIn={this.props.loggedIn}
+              component={UserRecipesContainer}
             />
-            <Route
+            <AuthRoutes
               exact
               path="/createRecipe"
+              loggedIn={this.props.loggedIn}
               render={() =>
-                // !this.props.loggedIn ? this.notAuth() : 
                 <CreateRecipeForm currentUser={this.props.currentUser}/>
               }
             />
