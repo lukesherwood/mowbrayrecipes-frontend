@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import moment from "moment";
 import UserButtons from "./UserButtons";
+import Comments from "./Comments";
 
 export default function RecipeShow(props) {
   const { recipes, params } = props;
@@ -119,6 +120,8 @@ export default function RecipeShow(props) {
               </Col>
             </Row>
           </div>
+          <br></br>
+          <Comments recipe={recipe}/>
         </div>
       );
     }
