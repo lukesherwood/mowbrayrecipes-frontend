@@ -11,9 +11,10 @@ export default function Comments(props) {
         });
 
     return (
-        <div>
+        <div className="comments-container">
             <h3>Comments/Reviews</h3>
             <div>{commentsList}</div>
+            <br></br>
             <CreateCommentForm recipe={recipe}/>
         </div>
          )

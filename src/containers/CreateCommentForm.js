@@ -30,13 +30,14 @@ class CreateCommentForm extends Component {
             };
             this.props.addCommentToRecipe(comment);
             setSubmitting(false);
+            resetForm()
             // document.getElementById("toggle-new-list-form")
             //   ? document.getElementById("toggle-new-list-form").click()
             //   : resetForm();
           }}
         >
           {({ touched, errors, handleSubmit, isSubmitting }) => (
-            <Form inline onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Form.Label size="sm">Content</Form.Label>
                 <Field
@@ -45,17 +46,19 @@ class CreateCommentForm extends Component {
                     (errors.content && touched.content ? "is-invalid" : "")
                   }
                   size="sm"
+                  as="textarea"
                   name="content"
-                />
+                  />
                 <ErrorMessage
                   name="content"
                   component="div"
                   className="text-danger"
-                />
+                  />
               </Form.Group>
               <Form.Group>
                 <Form.Label size="sm">Rating</Form.Label>
                 <Field
+                  as="select"
                   className={
                     "form-control " +
                     (errors.rating && touched.rating
@@ -64,7 +67,14 @@ class CreateCommentForm extends Component {
                   }
                   size="sm"
                   name="rating"
-                />
+                >
+                  <option defaultValue>Choose Rating</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </Field>
                 <ErrorMessage
                   name="rating"
                   component="div"
