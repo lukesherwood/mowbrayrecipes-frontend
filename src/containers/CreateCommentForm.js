@@ -8,14 +8,14 @@ import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
   content: Yup.string()
-    .max(100, "*Names can't be longer than 100 characters")
     .required("*Content is required"),
 });
 class CreateCommentForm extends Component {
   render() {
     return (
       <div className="comment-card">
-        <h3>Create a new Comment</h3>
+        <br></br>
+        <h3>New Comment</h3>
         <Formik
           initialValues={{ content: "", rating: "" }}
           validationSchema={validationSchema}

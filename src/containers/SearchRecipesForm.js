@@ -16,7 +16,6 @@ class SearchRecipesForm extends Component {
 
   fuseSearch = (keyword) => {
     const recipes = this.props.recipes;
-    console.log(recipes);
     const fuse = new Fuse(recipes, {
       threshold: 0.1,
       keys: ["attributes.name"],
@@ -65,7 +64,7 @@ class SearchRecipesForm extends Component {
               </Form.Group>
               <Form.Group className="col-1 pl-0 pr-0">
                 <Button
-                  variant="outline-success"
+                  variant="outline-primary"
                   className="d-flex"
                   type="submit"
                   disabled={isSubmitting}
