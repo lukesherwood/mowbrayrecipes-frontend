@@ -36,6 +36,17 @@ const recipesReducer = (state = { recipes: [], loading: false }, action) => {
         loading: false,
         error: "",
       };
+    case "ADD_COMMENT":
+        const recipeIndex = state.recipes.findIndex(
+          (recipe) => recipe.id === action.recipe.id
+        );
+        const array = [...state.recipes];
+        array[recipeIndex] = action.recipe;
+        return {
+          ...state,
+          loading: false,
+          recipes: array,
+        };
     default:
       return state;
   }

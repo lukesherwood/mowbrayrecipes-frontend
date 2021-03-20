@@ -135,3 +135,30 @@ export const deleteRecipe = (inputRecipe) => {
       });
   };
 };
+
+export const addCommentToRecipe = (comment) => {
+  return (dispatch) => {
+    dispatch({ type: "LOADING_RECIPES" });
+    axios
+      .post(
+        WEB_URL+`/recipes/${comment.recipe_id}/comments`,
+        { comment: comment },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          }
+        }
+      )
+      .then((data) => {
+        dispatch({ type: "ADD_COMMENT", recipe: data.data.data });
+      })
+      .catch(function (error) {
+        NotificationManager.error(
+          `Error while creating new recipe!, ${error}`,
+          "Error!"
+        );
+      });
+  };
+};

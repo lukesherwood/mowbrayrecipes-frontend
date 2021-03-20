@@ -121,7 +121,7 @@ export default function RecipeShow(props) {
             </Row>
           </div>
           <br></br>
-          <Comments recipe={recipe}/>
+          <Comments recipe={recipe} />
         </div>
       );
     }

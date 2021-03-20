@@ -1,14 +1,21 @@
 import React from 'react'
+import CreateCommentForm from '../containers/CreateCommentForm'
+import Comment from './Comment';
 
-export default function Comments() {
+export default function Comments(props) {
+    const recipe = props.recipe
+    const comments = recipe.attributes.comments || {}
+    if (comments) {
+        const commentsList = comments.map((comment) => {
+          return <Comment key={comment.id} comment={comment} />;
+        });
+
     return (
         <div>
             <h3>Comments/Reviews</h3>
-            <p>1 hjsf</p>
-            <p>1 sjdfs</p>
-            <p>1 sdjf</p>
-            <p>1 askjfwf</p>
-
+            <div>{commentsList}</div>
+            <CreateCommentForm recipe={recipe}/>
         </div>
-    )
+         )
+    }
 }
