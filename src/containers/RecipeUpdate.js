@@ -8,8 +8,8 @@ class RecipeUpdate extends Component {
     this.props.fetchRecipes();
   }
 
-  handleSubmit = (recipe) => {
-    this.props.updateRecipe(recipe);
+  handleSubmit = (recipe, id) => {
+    this.props.updateRecipe(recipe, id);
   };
 
   render() {
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateRecipe: (recipeInfo) => dispatch(updateRecipe(recipeInfo)),
+    updateRecipe: (recipeInfo, id) => dispatch(updateRecipe(recipeInfo, id)),
     fetchRecipes: () => dispatch(fetchRecipes()),
   };
 };

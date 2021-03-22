@@ -53,16 +53,15 @@ export const fetchUserRecipes = () => {
 };
 
 export const createRecipe = (recipeInfo) => {
-  console.log(recipeInfo)
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
       .post(
         WEB_URL+"/recipes",
-        { recipe: recipeInfo },
+        recipeInfo,
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
             "Accept": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           }
@@ -80,14 +79,14 @@ export const createRecipe = (recipeInfo) => {
   };
 };
 
-export const updateRecipe = (recipeInfo) => {
-  console.log(recipeInfo)
+export const updateRecipe = (recipeInfo, id) => {
+  console.log(id)
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
       .patch(
-        WEB_URL+`/recipes/${recipeInfo.id}`,
-        { recipe: recipeInfo },
+        WEB_URL+`/recipes/${id}`,
+        recipeInfo,
         {
           headers: {
             "Content-Type": "application/json",

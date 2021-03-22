@@ -11,46 +11,6 @@ const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
 });
 class FormComponent extends Component {
-  // handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // };
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const {
-  //     name,
-  //     ingredients,
-  //     method,
-  //     serves,
-  //     imageUrl,
-  //     course,
-  //     cuisine,
-  //     prepTime,
-  //     cookTime,
-  //     description,
-  //     image,
-  //   } = this.state;
-  //   const recipe = {
-  //     image,
-  //     name: name,
-  //     ingredients: ingredients,
-  //     method: method,
-  //     serves: serves,
-  //     image_url: imageUrl,
-  //     user_id: this.props.currentUser.id,
-  //     cuisine: cuisine,
-  //     prep_time: prepTime,
-  //     cook_time: cookTime,
-  //     description: description,
-  //     course: course,
-  //     id: this.props.recipe.id,
-  //   };
-  //   this.props.handleSubmit(recipe);
-  //   this.props.history.push(`/recipes/${recipe.id}`); // recipe.id doesn't work if create recipe
-  // };
 
   render() {
     const recipeAttributes = this.props.recipe.attributes;
@@ -83,30 +43,31 @@ class FormComponent extends Component {
               cookTime,
               description,
               course,
+              image
             } = values;
-            let recipe = {
-              name,
-              ingredients,
-              method,
-              serves,
-              image_url: imageUrl,
-              cuisine,
-              prep_time: prepTime,
-              cook_time: cookTime,
-              description,
-              course,
-              user_id: this.props.currentUser.id,
-              id: this.props.recipe.id || null,
-            };
-            this.props.handleSubmit(recipe);
-            recipe.id
-              ? this.props.history.push(`/recipes/${recipe.id}`)
+            let data = new FormData();
+            data.append("recipe[image]", image);
+            data.append("recipe[imageUrl]", imageUrl);
+            data.append("recipe[name]", name)
+            data.append("recipe[ingredients]", ingredients)
+            data.append("recipe[method]", method)
+            data.append("recipe[serves]", serves)
+            data.append("recipe[cuisine]", cuisine)
+            data.append("recipe[prep_time]", prepTime)
+            data.append("recipe[cook_time]", cookTime)
+            data.append("recipe[description]", description)
+            data.append("recipe[course]", course)
+            data.append("recipe[user_id]", this.props.currentUser.id)
+            data.append("recipe[id]", this.props.recipe.id || null)
+            this.props.handleSubmit(data, this.props.recipe.id );
+            this.props.recipe.id 
+              ? this.props.history.push(`/recipes/${this.props.recipe.id}`)
               : this.props.history.push(`/User/`);
             resetForm();
             setSubmitting(false);
           }}
         >
-          {({ touched, errors, handleSubmit, isSubmitting }) => (
+          {({ touched, errors, handleSubmit, isSubmitting, setFieldValue }) => (
             <Form onSubmit={handleSubmit}>
               <Row xs={1} sm={2} md={3} lg={3}>
                 <Col>
@@ -327,6 +288,14 @@ class FormComponent extends Component {
                   className="invalid-feedback"
                 />
               </Form.Group>
+              <input
+                type="file"
+                name="file"
+                accept="image/*"
+                onChange={(event) =>{
+                  setFieldValue("image", event.target.files[0]);
+                }}
+              />
               <Button variant="primary" type="submit" disabled={isSubmitting}>
                 Submit Recipe
               </Button>

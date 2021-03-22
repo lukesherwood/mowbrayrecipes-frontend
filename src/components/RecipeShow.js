@@ -82,7 +82,7 @@ export default function RecipeShow(props) {
                   className="float-right"
                   width="600px"
                   alt={recipe.attributes.name}
-                  src={recipe.attributes.image_url}
+                  src={recipe.attributes.image}
                   fluid
                 />
               </Col>
