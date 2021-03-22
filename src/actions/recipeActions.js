@@ -53,6 +53,7 @@ export const fetchUserRecipes = () => {
 };
 
 export const createRecipe = (recipeInfo) => {
+  console.log(recipeInfo)
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
@@ -62,7 +63,7 @@ export const createRecipe = (recipeInfo) => {
         {
           headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
+            "Accept": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           }
         }
@@ -80,6 +81,7 @@ export const createRecipe = (recipeInfo) => {
 };
 
 export const updateRecipe = (recipeInfo) => {
+  console.log(recipeInfo)
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
@@ -89,14 +91,13 @@ export const updateRecipe = (recipeInfo) => {
         {
           headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
+            "Accept": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           }
         }
       )
       .then((data) => {
         dispatch({ type: "UPDATE_RECIPE", recipe: data.data.data });
-        // push to new recipe show page??
       })
       .catch(function (error) {
         NotificationManager.error(

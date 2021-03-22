@@ -11,11 +11,11 @@ class UserButtons extends React.Component {
   }
 
   render() {
-    const user = this.props.user.data || "";
+    const user = this.props.user || "";
     const recipeAuthor = this.props.recipe.relationships.user.data || "";
     return (
       <div>
-        {user.id === recipeAuthor.id ? (
+        {user.id === parseInt(recipeAuthor.id) ? (
           <>
             <Link
               className="btn btn-outline-warning btn-sm"
