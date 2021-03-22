@@ -287,14 +287,17 @@ class FormComponent extends Component {
                   className="invalid-feedback"
                 />
               </Form.Group>
+              <Form.Label size="sm"> Upload an Image </Form.Label>
               <input
+                className="mb-2 mr-sm-2 form-control"
                 type="file"
-                name="file"
+                name="image"
                 accept="image/*"
                 onChange={(event) =>{
                   setFieldValue("image", event.target.files[0]);
                 }}
               />
+              <br></br>
               <Button variant="primary" type="submit" disabled={isSubmitting}>
                 Submit Recipe
               </Button>
