@@ -32,7 +32,7 @@ class FormComponent extends Component {
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(true);
-            const {
+            let {
               name,
               ingredients,
               method,
@@ -46,8 +46,7 @@ class FormComponent extends Component {
               image
             } = values;
             let data = new FormData();
-            data.append("recipe[image]", image);
-            data.append("recipe[imageUrl]", imageUrl);
+            image ? data.append("recipe[image]", image) : data.append("recipe[imageUrl]", imageUrl);
             data.append("recipe[name]", name)
             data.append("recipe[ingredients]", ingredients)
             data.append("recipe[method]", method)
