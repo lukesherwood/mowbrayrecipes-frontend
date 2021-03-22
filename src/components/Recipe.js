@@ -6,9 +6,10 @@ import UserButtons from "./UserButtons";
 
 export default function Recipe(props) {
   const { recipe } = props;
+  const imageUrl = recipe.attributes.image || recipe.attributes.imageUrl
   return (
     <Card className="recipe-card col mx-2 mb-3" id={recipe.id + "-recipe-card"}>
-      <Card.Img variant="top" src={recipe.attributes.image} />
+      <Card.Img variant="top" src={imageUrl} />
       <Card.Body>
         <Card.Title>{recipe.attributes.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">

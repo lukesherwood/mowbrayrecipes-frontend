@@ -8,9 +8,11 @@ import Comments from "./Comments";
 
 export default function RecipeShow(props) {
   const { recipes, params } = props;
+  
   if (recipes) {
     let recipe = recipes.find((r) => r.id === params.match.params.id);
     if (recipe) {
+      const imageUrl = recipe.attributes.image || recipe.attributes.imageUrl
       return (
         <div className="recipe-item-page border">
           <div className="recipe-header">
@@ -82,7 +84,7 @@ export default function RecipeShow(props) {
                   className="float-right"
                   width="600px"
                   alt={recipe.attributes.name}
-                  src={recipe.attributes.image}
+                  src={imageUrl}
                   fluid
                 />
               </Col>

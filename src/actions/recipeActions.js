@@ -80,7 +80,6 @@ export const createRecipe = (recipeInfo) => {
 };
 
 export const updateRecipe = (recipeInfo, id) => {
-  console.log(id)
   return (dispatch) => {
     dispatch({ type: "LOADING_RECIPES" });
     axios
