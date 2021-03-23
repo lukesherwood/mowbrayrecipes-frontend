@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+// import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Link } from "react-router-dom";
-import UserButtons from "./UserButtons";
+// import UserButtons from "./UserButtons";
 
 export default function Recipe(props) {
   const { recipe } = props;
@@ -25,16 +25,15 @@ export default function Recipe(props) {
           <br></br>
           Prep Time: {recipe.attributes.prep_time}
         </div>
+       
       </Card.Body>
-      <ButtonGroup>
-        <Link
-          className="btn btn-outline-primary btn-sm"
+      <Link
+          className="btn btn-outline-primary btn-sm stretched-link"
           to={`/recipes/${recipe.id}`}
         >
           More information
         </Link>
-        <UserButtons recipe={recipe} />
-      </ButtonGroup>
+        {/* <UserButtons recipe={recipe} /> */}
     </Card>
   );
 }

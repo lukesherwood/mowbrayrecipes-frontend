@@ -92,11 +92,14 @@ export default function RecipeShow(props) {
           </div>
             <div className="recipe-footer">
             <Row className="justify-content-md-center">
-              <Col lg="6">
+              <Col lg="10">
                 <b>Last Updated:</b>{" "}
                 {moment(recipe.attributes.updated_at).format(
                   "MMMM Do YYYY, h:mm a"
                 )}
+              </Col>
+              <Col lg="{ span: 10, offset: 2 }" >
+                 <UserButtons recipe={recipe} />
               </Col>
             </Row>
           </div>
@@ -120,7 +123,7 @@ export default function RecipeShow(props) {
               </ol>
             </section>
             <br></br>
-            <UserButtons recipe={recipe} />
+           
           </div>
           <br></br>
           <Comments recipe={recipe} />

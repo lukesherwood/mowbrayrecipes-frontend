@@ -18,13 +18,13 @@ class UserButtons extends React.Component {
         {user.id === parseInt(recipeAuthor.id) ? (
           <>
             <Link
-              className="btn btn-outline-warning btn-sm"
+              className="btn btn-outline-warning"
               to={`/recipes/${this.props.recipe.id}/update`}
             >
               Update
             </Link>
             <Button
-              variant="outline-danger btn-sm"
+              variant="outline-danger"
               onClick={(e) => this.handleClick(this.props.recipe)}
             >
               Delete
