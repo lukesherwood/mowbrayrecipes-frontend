@@ -8,13 +8,14 @@ class UserButtons extends React.Component {
   // could go back to functional component and useSelector
   handleClick(inputRecipe) {
     this.props.deleteRecipe(inputRecipe);
+    this.props.history.push(`/User/`);
   }
 
   render() {
     const user = this.props.user || "";
     const recipeAuthor = this.props.recipe.relationships.user.data || "";
     return (
-      <div>
+      <div className="pr-10">
         {user.id === parseInt(recipeAuthor.id) ? (
           <>
             <Link
