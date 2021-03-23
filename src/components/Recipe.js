@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 
 export default function Recipe(props) {
   const { recipe } = props;
-  const imageUrl = recipe.attributes.image || recipe.attributes.imageUrl
+  let imageUrl = recipe.attributes.image || recipe.attributes.imageUrl
+  imageUrl == null ? imageUrl = "https://images.unsplash.com/photo-1495546968767-f0573cca821e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80" : imageUrl = null
   return (
     <Card className="recipe-card col mx-2 mb-3" id={recipe.id + "-recipe-card"}>
       <Card.Img variant="top" src={imageUrl} />

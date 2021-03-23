@@ -5,7 +5,6 @@ import FormComponent from "../components/FormComponent";
 
 class CreateRecipeForm extends Component {
   recipe = {
-    id: "", // how to get id of created recipe?
     attributes: {
       name: "",
       ingredients: "",
