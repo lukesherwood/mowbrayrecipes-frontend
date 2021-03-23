@@ -57,10 +57,11 @@ class FormComponent extends Component {
             data.append("recipe[description]", description)
             data.append("recipe[course]", course)
             data.append("recipe[user_id]", this.props.currentUser.id)
-            data.append("recipe[id]", this.props.recipe.id || null)
-            this.props.handleSubmit(data, this.props.recipe.id );
-            this.props.recipe.id 
-              ? this.props.history.push(`/recipes/${this.props.recipe.id}`)
+            let id = this.props.recipe.id || null
+            id ? data.append("recipe[id]", this.props.recipe.id) : id = null
+            this.props.handleSubmit(data, id );
+            id
+              ? this.props.history.push(`/recipes/${id}`)
               : this.props.history.push(`/User/`);
             resetForm();
             setSubmitting(false);
