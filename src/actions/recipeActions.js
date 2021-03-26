@@ -122,13 +122,13 @@ export const deleteRecipe = (inputRecipe) => {
       .then(() => {
         dispatch({ type: "DELETE_RECIPE", recipe: inputRecipe });
         NotificationManager.success(
-          `Successfully deleted your list, ${inputRecipe.attributes.name}`,
+          `Successfully deleted your recipe, ${inputRecipe.attributes.name}`,
           "Success!"
         );
       })
       .catch(function (error) {
         NotificationManager.error(
-          `Error while deleting list!, ${error}`,
+          `Error while deleting recipe!, ${error}`,
           "Error!"
         );
       });

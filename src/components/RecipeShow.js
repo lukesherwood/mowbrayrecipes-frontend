@@ -12,7 +12,7 @@ export default function RecipeShow(props) {
   if (recipes) {
     let recipe = recipes.find((r) => r.id === params.match.params.id);
     if (recipe) {
-      const imageUrl = recipe.attributes.image || recipe.attributes.imageUrl || "https://images.unsplash.com/photo-1495546968767-f0573cca821e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80"
+      const imageUrl = recipe.attributes.image || recipe.attributes.image_url || "https://images.unsplash.com/photo-1495546968767-f0573cca821e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80"
       return (
         <div className="recipe-item-page border">
           <div className="recipe-header">
