@@ -214,7 +214,7 @@ class FormComponent extends Component {
                 </Col>
               </Row>
               <Form.Group>
-                <Form.Label size="sm"> Description </Form.Label>
+                <Form.Label size="sm"> Description or Notes </Form.Label>
                 <Field
                   className={
                     "mb-2 mr-sm-2 form-control " +
@@ -223,7 +223,7 @@ class FormComponent extends Component {
                       : "")
                   }
                   as="textarea"
-                  rows={7}
+                  rows={3}
                   size="sm"
                   name="description"
                 />
@@ -282,6 +282,7 @@ class FormComponent extends Component {
                   type="text"
                   size="sm"
                   name="imageUrl"
+                  placeholder="You can paste the image url here or upload your own picture below"
                 />
                 <ErrorMessage
                   name="imageUrl"

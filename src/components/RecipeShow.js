@@ -8,11 +8,14 @@ import Comments from "./Comments";
 
 export default function RecipeShow(props) {
   const { recipes, params } = props;
-  
+
   if (recipes) {
     let recipe = recipes.find((r) => r.id === params.match.params.id);
     if (recipe) {
-      const imageUrl = recipe.attributes.image || recipe.attributes.image_url || "https://images.unsplash.com/photo-1495546968767-f0573cca821e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80"
+      const imageUrl =
+        recipe.attributes.image ||
+        recipe.attributes.image_url ||
+        "https://images.unsplash.com/photo-1495546968767-f0573cca821e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80";
       return (
         <div className="recipe-item-page border">
           <div className="recipe-header">
@@ -75,7 +78,12 @@ export default function RecipeShow(props) {
                   <div className="w-100 d-none d-md-block"></div>
                   <Col>
                     <br></br>
-                    <p>{recipe.attributes.description}</p>
+                    <h4>Description/Notes:</h4>
+                    <ul>
+                      {recipe.attributes.description.split(/\n/).map((line) => (
+                        <li key={Date.now() + Math.random(100)}>{line}</li>
+                      ))}
+                    </ul>
                   </Col>
                 </Row>
               </Col>
@@ -90,7 +98,7 @@ export default function RecipeShow(props) {
               </Col>
             </Row>
           </div>
-            <div className="recipe-footer">
+          <div className="recipe-footer">
             <Row className="justify-content-md-center">
               <Col lg="10">
                 <b>Last Updated:</b>{" "}
@@ -99,7 +107,7 @@ export default function RecipeShow(props) {
                 )}
               </Col>
               <Col lg="{ span: 10, offset: 2 }" className="pr-10">
-                 <UserButtons recipe={recipe} />
+                <UserButtons recipe={recipe} />
               </Col>
             </Row>
           </div>
@@ -123,7 +131,6 @@ export default function RecipeShow(props) {
               </ol>
             </section>
             <br></br>
-           
           </div>
           <br></br>
           <Comments recipe={recipe} />
