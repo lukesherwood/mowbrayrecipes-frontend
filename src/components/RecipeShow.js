@@ -93,6 +93,7 @@ export default function RecipeShow(props) {
                   width="600px"
                   alt={recipe.attributes.name}
                   src={imageUrl}
+                  secure
                   fluid
                 />
               </Col>
