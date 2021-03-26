@@ -98,7 +98,7 @@ export default function RecipeShow(props) {
                   "MMMM Do YYYY, h:mm a"
                 )}
               </Col>
-              <Col lg="{ span: 10, offset: 2 }" >
+              <Col lg="{ span: 10, offset: 2 }" className="pr-10">
                  <UserButtons recipe={recipe} />
               </Col>
             </Row>

@@ -28,6 +28,7 @@ class FormComponent extends Component {
             cookTime: recipeAttributes.cook_time,
             description: recipeAttributes.description,
             course: recipeAttributes.course,
+            image: recipeAttributes.image,
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -46,7 +47,7 @@ class FormComponent extends Component {
               image
             } = values;
             let data = new FormData();
-            image ? data.append("recipe[image]", image) : data.append("recipe[imageUrl]", imageUrl);
+            image ? data.append("recipe[image]", image) : data.append("recipe[image_url]", imageUrl);
             data.append("recipe[name]", name)
             data.append("recipe[ingredients]", ingredients)
             data.append("recipe[method]", method)
@@ -62,7 +63,7 @@ class FormComponent extends Component {
             this.props.handleSubmit(data, id );
             id
               ? this.props.history.push(`/recipes/${id}`)
-              : this.props.history.push(`/User/`);
+              : this.props.history.goBack()
             resetForm();
             setSubmitting(false);
           }}

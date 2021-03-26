@@ -2,20 +2,22 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { deleteRecipe } from "../actions/recipeActions";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 class UserButtons extends React.Component {
   // could go back to functional component and useSelector
-  handleClick(inputRecipe) {
-    this.props.deleteRecipe(inputRecipe);
-    this.props.history.push(`/User/`);
+  handleClick = (event) => {
+    event.preventDefault();
+    this.props.deleteRecipe(this.props.recipe);
+    this.props.history.goBack(); // the key to using this was to add withRouter!!
   }
 
   render() {
     const user = this.props.user || "";
     const recipeAuthor = this.props.recipe.relationships.user.data || "";
     return (
-      <div className="pr-10">
+      <div>
         {user.id === parseInt(recipeAuthor.id) ? (
           <>
             <Link
@@ -26,7 +28,7 @@ class UserButtons extends React.Component {
             </Link>
             <Button
               variant="outline-danger"
-              onClick={(e) => this.handleClick(this.props.recipe)}
+              onClick={this.handleClick}
             >
               Delete
             </Button>
@@ -38,7 +40,6 @@ class UserButtons extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    recipes: state.recipes,
     user: state.users.user,
   };
 };
@@ -49,4 +50,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserButtons);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserButtons));
