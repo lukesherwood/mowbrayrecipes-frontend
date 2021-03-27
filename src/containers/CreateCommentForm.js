@@ -81,7 +81,7 @@ class CreateCommentForm extends Component {
                   className="text-danger"
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" disabled={isSubmitting}>
+              <Button variant="primary" className="btn-custom" type="submit" disabled={isSubmitting}>
                 Create Comment
               </Button>
             </Form>

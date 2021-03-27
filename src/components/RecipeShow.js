@@ -26,7 +26,7 @@ export default function RecipeShow(props) {
             </div>
             <br></br>
             <Row xs={1} md={2} lg={2}>
-              <Col>
+              <Col className="recipe-header-body">
                 <Row>
                   <Col className="col-4">
                     <h6>
@@ -93,21 +93,21 @@ export default function RecipeShow(props) {
                   width="600px"
                   alt={recipe.attributes.name}
                   src={imageUrl}
-                  secure
+                  secure="true"
                   fluid
                 />
               </Col>
             </Row>
           </div>
           <div className="recipe-footer">
-            <Row className="justify-content-md-center">
-              <Col lg="10">
+            <Row className="justify-content-left">
+              <Col lg="8">
                 <b>Last Updated:</b>{" "}
                 {moment(recipe.attributes.updated_at).format(
                   "MMMM Do YYYY, h:mm a"
                 )}
               </Col>
-              <Col lg="{ span: 10, offset: 2 }" className="pr-10">
+              <Col>
                 <UserButtons recipe={recipe} />
               </Col>
             </Row>

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import { Link } from "react-router-dom";
 import { deleteRecipe } from "../actions/recipeActions";
 import { withRouter } from "react-router-dom";
@@ -17,7 +18,7 @@ class UserButtons extends React.Component {
     const user = this.props.user || "";
     const recipeAuthor = this.props.recipe.relationships.user.data || "";
     return (
-      <div>
+      <ButtonGroup>
         {user.id === parseInt(recipeAuthor.id) ? (
           <>
             <Link
@@ -34,7 +35,7 @@ class UserButtons extends React.Component {
             </Button>
           </>
         ) : null}
-      </div>
+      </ButtonGroup>
     );
   }
 }

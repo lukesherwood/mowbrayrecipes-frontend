@@ -115,7 +115,7 @@ class Signup extends Component {
                   className="invalid-feedback"
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" disabled={isSubmitting}>
+              <Button variant="primary" className="btn-custom" type="submit" disabled={isSubmitting}>
                 Sign Up
               </Button>
             </Form>

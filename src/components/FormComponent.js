@@ -15,7 +15,7 @@ class FormComponent extends Component {
   render() {
     const recipeAttributes = this.props.recipe.attributes;
     return (
-      <div className="recipe-card">
+      <div className="form-card">
         <Formik
           initialValues={{
             name: recipeAttributes.name,
@@ -301,7 +301,7 @@ class FormComponent extends Component {
                 }}
               />
               <br></br>
-              <Button variant="primary" type="submit" disabled={isSubmitting}>
+              <Button variant="primary" className="btn-custom" type="submit" disabled={isSubmitting}>
                 Submit Recipe
               </Button>
             </Form>

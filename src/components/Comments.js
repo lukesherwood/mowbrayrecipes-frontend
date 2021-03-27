@@ -21,6 +21,7 @@ export default function Comments(props) {
           <Accordion.Toggle
             as={Button}
             variant="primary"
+            className="btn-custom"
             id="toggle-new-list-form"
             eventKey="0"
           >
