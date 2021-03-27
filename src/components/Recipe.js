@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Image from 'cloudinary-react'
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Link } from "react-router-dom";
 // import UserButtons from "./UserButtons";
