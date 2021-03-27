@@ -301,7 +301,7 @@ class FormComponent extends Component {
                 }}
               />
               <br></br>
-              <Button variant="primary" className="btn-custom" type="submit" disabled={isSubmitting}>
+              <Button variant="primary" className="btn-custom icon-truck" type="submit" disabled={isSubmitting}>
                 Submit Recipe
               </Button>
             </Form>

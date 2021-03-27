@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import SearchRecipesForm from "../containers/SearchRecipesForm";
 
+
 class NavbarClass extends Component {
   render() {
     return (

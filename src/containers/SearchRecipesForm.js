@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import { Formik, Field } from "formik";
 import Fuse from "fuse.js";
+import * as Icon from 'react-bootstrap-icons';
 // import * as Yup from "yup";
 import ModalRecipes from "../components/ModalRecipes";
 class SearchRecipesForm extends Component {
@@ -65,11 +66,11 @@ class SearchRecipesForm extends Component {
               <Form.Group className="col-1 pl-0 pr-0">
                 <Button
                   variant="outline-primary"
-                  className="d-flex"
+                  // className="d-flex"
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  Search
+                  <Icon.Search />
                 </Button>
               </Form.Group>
             </Form>
