@@ -24,7 +24,7 @@ class Signup extends Component {
   render() {
     return (
       <div className="sign-up-container">
-        <h2>Sign Up</h2>
+        <h2 className="recipe-header">Sign Up</h2>
         <Formik
           initialValues={{
             email: "",

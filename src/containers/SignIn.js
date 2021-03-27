@@ -18,7 +18,7 @@ class SignIn extends Component {
   render() {
     return (
       <div className="sign-in-container">
-        <h2>Sign In</h2>
+        <h2 className="recipe-header">Sign In</h2>
 
         <Formik
           initialValues={{ email: "", password: "" }}
