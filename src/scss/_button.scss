@@ -1,29 +1,5 @@
 .btn-custom {
-    background-color: $primary !important;
-    background-repeat: repeat-x;
-    background-image: -khtml-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(#1186ed),
-      to(#094b84)
-    );
-    background-image: -moz-linear-gradient(top, #1186ed, #094b84);
-    background-image: -ms-linear-gradient(top, #1186ed, #094b84);
-    background-image: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      color-stop(0%, #1186ed),
-      color-stop(100%, #094b84)
-    );
-    background-image: -webkit-linear-gradient(top, #1186ed, #094b84);
-    background-image: -o-linear-gradient(top, #1186ed, #094b84);
-    background-image: linear-gradient(#1186ed, #094b84);
-    border-color: #094b84 #094b84 hsl(208, 86%, 22.5%);
-    color: #fff !important;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
-    -webkit-font-smoothing: antialiased;
+    @include theme-color;
   }
 
   
@@ -31,4 +7,6 @@
     border-color: rgb(0, 10, 17) !important;
     color: rgb(0, 10, 17) !important;
   }
+
+  
   

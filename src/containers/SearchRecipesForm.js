@@ -50,7 +50,7 @@ class SearchRecipesForm extends Component {
           }}
         >
           {({ touched, errors, handleSubmit, isSubmitting }) => (
-            <Form className="row vertical-center" onSubmit={handleSubmit}>
+            <Form className="row w-100" onSubmit={handleSubmit}>
               <Form.Group className="col pr-0">
                 <Field
                   type="search"

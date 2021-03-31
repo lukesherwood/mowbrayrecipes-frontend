@@ -1,49 +1,17 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 
 .nav-pills .nav-link.active { // import this from button
-  background-color: hsl(208, 86%, 28%) !important;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#1186ed),
-    to(#094b84)
-  );
-  background-image: -moz-linear-gradient(top, #1186ed, #094b84);
-  background-image: -ms-linear-gradient(top, #1186ed, #094b84);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0%, #1186ed),
-    color-stop(100%, #094b84)
-  );
-  background-image: -webkit-linear-gradient(top, #1186ed, #094b84);
-  background-image: -o-linear-gradient(top, #1186ed, #094b84);
-  background-image: linear-gradient(#1186ed, #094b84);
-  border-color: #094b84 #094b84 hsl(208, 86%, 22.5%);
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
-  -webkit-font-smoothing: antialiased;
+ @include theme-color;
 }
 
-.nav-link,
-.navbar-brand {
+.nav-link {
   padding-right: 15px !important;
   padding-left: 15px !important;
-  // padding-top: 5px;
-  // height: 80px;
 }
 
 .search-bar-nav {
   width: 450px;
-}
-
-.vertical-center {
   padding-top: 20px;
-  width: 100%;
-  justify-content: right;
 }
 
 .navbar {
@@ -52,29 +20,16 @@
   align-items: center;
 }
 
-.navbar-brand img {
-  width: 200px;
-}
-
-.search-form {
-  padding-right: 40px;
-}
-
 @media only screen and (max-width: 1200px) {
   .search-bar-nav {
     width: 260px;
   }
-  .navbar-brand {
-    padding-left: 0;
-  }
 }
 
 @media only screen and (max-width: 950px) {
-  .vertical-center {
-    padding: 0px;
-  }
 
   .search-bar-nav {
-    width: 100%;
+    width: 90%;
+    padding: 0px;
   }
 }
