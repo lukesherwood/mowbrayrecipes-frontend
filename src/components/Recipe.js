@@ -16,12 +16,12 @@ export default function Recipe(props) {
         <Card.Subtitle className="mb-2 text-muted">
           By: {recipe.attributes.user.name}
         </Card.Subtitle>
-        <div className="recipe-card-left">
+        <div className="float-left">
           Course: {recipe.attributes.course}
           <br></br>
           Cuisine: {recipe.attributes.cuisine}
         </div>
-        <div className="recipe-card-right">
+        <div className="float-right">
           Cook Time: {recipe.attributes.cook_time}
           <br></br>
           Prep Time: {recipe.attributes.prep_time}

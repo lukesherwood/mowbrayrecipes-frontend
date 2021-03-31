@@ -18,7 +18,7 @@ class RecipeUpdate extends Component {
     );
     return recipe ? (
       <div className="form-container">
-      <h3 className="recipe-header">Edit Recipe</h3>
+      <h3 className="header-theme">Edit Recipe</h3>
         <FormComponent
           recipe={recipe}
           handleSubmit={this.handleSubmit}

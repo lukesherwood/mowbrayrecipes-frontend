@@ -11,7 +11,7 @@ class RecipesContainer extends React.Component {
   render() {
     return (
       <div className="recipe-container">
-        <h3 className="recipe-header">Recipes</h3>
+        <h3 className="header-theme">Recipes</h3>
         <Recipes
           recipes={this.props.recipes}
           deleteRecipe={this.props.deleteRecipe}

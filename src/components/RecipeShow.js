@@ -5,6 +5,8 @@ import Image from "react-bootstrap/Image";
 import moment from "moment";
 import UserButtons from "./UserButtons";
 import Comments from "./Comments";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import {Clock} from 'react-bootstrap-icons'
 
 export default function RecipeShow(props) {
   const { recipes, params } = props;
@@ -18,66 +20,57 @@ export default function RecipeShow(props) {
         "https://images.unsplash.com/photo-1495546968767-f0573cca821e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80";
       return (
         <div className="recipe-container">
-          <div className="recipe-header">
-            <h1>{recipe.attributes.name}</h1>
-            <div className="recipe-subhead">
-              <span className="recipe-yield-time">By: </span>
-              {recipe.attributes.user.name}
-            </div>
-            <br></br>
+          <Jumbotron className="header-theme">
+            <div className="display-4">{recipe.attributes.name}</div>
+            <div className="lead">By: {recipe.attributes.user.name}</div>
+            <hr class="my-4" />
             <Row xs={1} md={2} lg={2}>
-              <Col className="recipe-header-body">
+              <Col className="text-left">
                 <Row>
                   <Col className="col-4">
                     <h6>
-                      <span className="recipe-yield-time">Total Time: </span>
-                      <br></br>
-                      <span>
+                      <div>Total <Clock/> </div>
+                      <div>
                         {recipe.attributes.prep_time +
                           recipe.attributes.cook_time}{" "}
                         mins
-                      </span>
+                      </div>
                     </h6>
                   </Col>
                   <Col className="col-4">
                     <h6>
-                      <span className="recipe-yield-time">Prep Time: </span>
-                      <br></br>
-                      <span>{recipe.attributes.prep_time} mins </span>
+                     <div>Prep <Clock/> </div>
+                      <div>{recipe.attributes.prep_time} mins </div>
                     </h6>
                   </Col>
                   <Col className="col-4">
                     <h6>
-                      <span className="recipe-yield-time">Cook Time: </span>
-                      <br></br>
-                      <span>{recipe.attributes.cook_time} mins </span>
+                      <div>Cook <Clock/> </div>
+                      <div>{recipe.attributes.cook_time} mins </div>
                     </h6>
                   </Col>
                   <div className="w-100 d-none d-md-block"></div>
                   <Col className="col-4">
                     <h6>
-                      <span className="recipe-yield-time">Servings: </span>
-                      <br></br>
-                      <span>{recipe.attributes.serves}</span>
+                      <div>Servings: </div>
+                      <div>{recipe.attributes.serves}</div>
                     </h6>
                   </Col>
                   <Col className="col-4">
                     <div>
-                      <span className="recipe-yield-time">Cuisine: </span>
-                      <br></br>
+                      <div>Cuisine: </div>
                       {recipe.attributes.cuisine}
                     </div>
                   </Col>
                   <Col className="col-4">
                     <div>
-                      <span className="recipe-yield-time">Course: </span>
-                      <br></br>
+                      <div>Course: </div>
                       {recipe.attributes.course}
                     </div>
                   </Col>
                   <div className="w-100 d-none d-md-block"></div>
                   <Col>
-                    <br></br>
+                  <hr class="my-4" />
                     <h4>Description/Notes:</h4>
                     <ul>
                       {recipe.attributes.description.split(/\n/).map((line) => (
@@ -98,7 +91,7 @@ export default function RecipeShow(props) {
                 />
               </Col>
             </Row>
-          </div>
+          </Jumbotron>
           <div className="recipe-footer">
             <Row className="justify-content-left">
               <Col lg="8">

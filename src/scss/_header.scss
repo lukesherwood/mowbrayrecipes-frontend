@@ -1,0 +1,33 @@
+  .header-theme {
+    border-radius: 8px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    text-align: center;
+    background-color: $primary !important;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#208eee),
+      to(#0f73cb)
+    );
+    background-image: -moz-linear-gradient(top, #208eee, #0f73cb);
+    background-image: -ms-linear-gradient(top, #208eee, #0f73cb);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0%, #208eee),
+      color-stop(100%, #0f73cb)
+    );
+    background-image: -webkit-linear-gradient(top, #208eee, #0f73cb);
+    background-image: -o-linear-gradient(top, #208eee, #0f73cb);
+    background-image: linear-gradient(#208eee, #0f73cb);
+    border-color: #0f73cb #0f73cb hsl(208, 86%, 40.5%);
+    color: #fff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16);
+    -webkit-font-smoothing: antialiased;
+  }
+  
