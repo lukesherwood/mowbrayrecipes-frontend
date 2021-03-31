@@ -17,7 +17,7 @@ const validationSchema = Yup.object().shape({
 class SignIn extends Component {
   render() {
     return (
-      <div className="sign-in-container">
+      <div className="sessions-container">
         <h2 className="recipe-header">Sign In</h2>
 
         <Formik

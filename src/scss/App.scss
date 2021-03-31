@@ -46,12 +46,14 @@ body {
   padding-bottom: 40px;
 }
 
-.sign-up-container {
-  width: 30%;
-}
-
-.sign-in-container {
-  width: 30%;
+.sessions-container {
+  width: 55%;
+  height: fit-content;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
 }
 
 .comments-container {
@@ -104,9 +106,8 @@ h1 {
 }
 
 .nav-link, .navbar-brand{
-  padding-right: 20px !important;
-  padding-left: 20px !important;
-  font-size: 0.9em !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
   // padding-top: 5px;
   // height: 80px;
   }
@@ -122,14 +123,13 @@ h1 {
 }
 
 .recipe-yield-time {
-  font-size: 1.2rem;
   letter-spacing: .5px;
   line-height: 19px;
   box-sizing: border-box;
 }
 
 .recipe-item-page {
-  width: 75%;
+  background-color: #fff;
 
 }
 .recipe-main {
@@ -142,7 +142,7 @@ h1 {
 }
 
 .navbar {
-  font-size: x-large;
+  font-size: 1.35rem;
   background-color: #e3f2fd;
 }
 
@@ -194,14 +194,9 @@ h1 {
 
 @media only screen and (max-width: 600px) {
 
-  .recipe-item-page {
-    width: 100%;
-    /* justify-content: center; */
-  }
-
-  .container-fluid {
-    padding-left: 5px;
-    padding-right: 5px;
+  .container {
+    padding-left: 1px;
+    padding-right: 1px;
   }
 
   .card {
@@ -212,20 +207,17 @@ h1 {
     width: 100%;
     padding-left: 0;
   }
+
+  .sessions-container {
+    width: 100%;
+  }
+
 } 
 
 @media only screen and (max-width: 1000px) {
-  
-  .sign-in-container {
-    width: 100%;
-  }
 
-  .sign-up-container {
-    width: 100%;
-  }
   .recipe-item-page {
     width: 100%;
-    /* justify-content: center; */
   }
 
 }
