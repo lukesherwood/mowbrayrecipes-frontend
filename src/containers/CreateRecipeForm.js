@@ -8,6 +8,7 @@ class CreateRecipeForm extends Component {
     attributes: {
       name: "",
       ingredients: "",
+      description: "",
       method: "",
       serves: "",
       image_url: "",
@@ -24,7 +25,7 @@ class CreateRecipeForm extends Component {
 
   render() {
     return (
-      <div className="recipe-container">
+      <div className="form-container">
         <h3 className="recipe-header">Create a new Recipe</h3>
         <FormComponent
           recipe={this.recipe}

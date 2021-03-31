@@ -18,7 +18,8 @@ body {
 }
 
 .btn-custom {
-  background-color: hsl(208, 86%, 28%) !important;
+  background-color: $primary !important;
+  padding: 0px;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, left bottom, from(#1186ed), to(#094b84));
   background-image: -moz-linear-gradient(top, #1186ed, #094b84);
@@ -31,6 +32,15 @@ body {
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
   -webkit-font-smoothing: antialiased;
+}
+
+.form-container {
+  background-color: #f1f1f1;
+  padding: 5px;
+}
+
+.recipe-container {
+  background-color: white;
 }
 
 .btn-custom:hover {
@@ -67,10 +77,10 @@ h1 {
 
 .recipe-header {
   padding-top: 10px;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
   padding-left: 20px;
   text-align: center;
-  background-color: hsl(208, 86%, 43%) !important;
+  background-color: $primary !important;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, left bottom, from(#208eee), to(#0f73cb));
   background-image: -moz-linear-gradient(top, #208eee, #0f73cb);

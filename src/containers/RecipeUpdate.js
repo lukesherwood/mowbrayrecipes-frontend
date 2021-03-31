@@ -17,8 +17,8 @@ class RecipeUpdate extends Component {
       (r) => r.id === this.props.params.match.params.id
     );
     return recipe ? (
-      <div className="recipe-card">
-        <h3>Edit Recipe</h3>
+      <div className="form-container">
+      <h3 className="recipe-header">Edit Recipe</h3>
         <FormComponent
           recipe={recipe}
           handleSubmit={this.handleSubmit}

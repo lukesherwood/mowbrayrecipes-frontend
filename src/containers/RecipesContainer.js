@@ -10,7 +10,7 @@ class RecipesContainer extends React.Component {
 
   render() {
     return (
-      <div className="recipes-container">
+      <div className="recipe-container">
         <h3 className="recipe-header">Recipes</h3>
         <Recipes
           recipes={this.props.recipes}

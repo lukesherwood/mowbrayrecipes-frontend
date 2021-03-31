@@ -1,7 +1,7 @@
 $primary: hsl(208, 86%, 28%);
 $border-radius: 8px;
 $rfs-base-font-size: 0.8rem;
-$enable-responsive-font-sizes: true !default;
+$enable-responsive-font-sizes: true;
 
 $grid-breakpoints: (
   xs: 0,
@@ -9,4 +9,4 @@ $grid-breakpoints: (
   md: 768px,
   lg: 950px,
   xl: 1200px
-) !default;
+);

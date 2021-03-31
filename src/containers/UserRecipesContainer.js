@@ -10,7 +10,7 @@ class UserRecipesContainer extends React.Component {
 
   render() {
     return (
-      <div className="recipes-container">
+      <div className="recipe-container">
         <h3 className="recipe-header">Your Recipes</h3>
         {/* <CreateRecipeForm currentUser={this.props.user}/> */}
         <Recipes recipes={this.props.recipes} />
