@@ -142,8 +142,9 @@ h1 {
 }
 
 .navbar {
-  font-size: 1.35rem;
+  @include font-size(1.35rem);
   background-color: #e3f2fd;
+  align-items: center;
 }
 
 .navbar-brand img {
@@ -192,6 +193,29 @@ h1 {
 }
 
 
+@media only screen and (max-width: 1200px) {
+  
+  .search-bar-nav {
+    width: 260px;
+  }
+
+}
+
+@media only screen and (max-width: 950px) {
+
+  .recipe-item-page {
+    width: 100%;
+  }
+
+  .vertical-center {
+    padding: 0px;
+  }
+
+  .search-bar-nav {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
 
   .container {
@@ -214,18 +238,6 @@ h1 {
 
 } 
 
-@media only screen and (max-width: 1000px) {
 
-  .recipe-item-page {
-    width: 100%;
-  }
 
-}
 
-@media only screen and (max-width: 1200px) {
-  
-  .search-bar-nav {
-    width: 220px;
-  }
-
-}
