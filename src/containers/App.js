@@ -1,4 +1,4 @@
-import "../App.scss";
+import "../scss/App.scss";
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavbarClass />
-        <Container fluid>
+        <Container>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/signIn" component={SignIn} />

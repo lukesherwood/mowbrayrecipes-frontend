@@ -10,7 +10,7 @@ import SearchRecipesForm from "../containers/SearchRecipesForm";
 class NavbarClass extends Component {
   render() {
     return (
-      <Navbar collapseOnSelect expand="md" bg="navbar-light" variant="light">
+      <Navbar collapseOnSelect expand="lg" bg="navbar-light" variant="light">
         <Navbar.Brand as={NavLink} to="/">
           <img
             src="/mowbray family recipes logo.png"

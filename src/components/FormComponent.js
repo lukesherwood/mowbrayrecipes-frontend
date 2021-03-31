@@ -282,7 +282,7 @@ class FormComponent extends Component {
                   type="text"
                   size="sm"
                   name="imageUrl"
-                  placeholder="You can paste the image url here or upload your own picture below"
+                  placeholder="Paste url or upload picture below"
                 />
                 <ErrorMessage
                   name="imageUrl"

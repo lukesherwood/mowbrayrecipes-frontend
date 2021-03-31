@@ -1,11 +1,15 @@
+@import './custom';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
 body {
   font-family: "Libre Baskerville", serif, "Bitstream Vera Serif", sans-serif;
  /* webpackIgnore: true */
   background: url('/img/concrete-texture.png') repeat 0 0;
 }
 
-.container-fluid {
+.container {
   min-height: 100vh; /* will cover the 100% of viewport */
+  max-width: 1200px;
   position: relative;
   padding-top: 20px;
   display: flex;
