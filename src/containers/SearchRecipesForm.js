@@ -30,7 +30,7 @@ class SearchRecipesForm extends Component {
   render() {
     return (
       // need to make this div width-100
-      <Nav>
+      <Nav className="search-bar-nav">
         <ModalRecipes
           show={this.state.modalShow}
           onHide={() => this.setState({ modalShow: false })}
@@ -51,7 +51,7 @@ class SearchRecipesForm extends Component {
         >
           {({ touched, errors, handleSubmit, isSubmitting }) => (
             <Form className="row vertical-center" onSubmit={handleSubmit}>
-              <Form.Group className="col-9 pr-0 col-md-8">
+              <Form.Group className="col pr-0">
                 <Field
                   type="search"
                   placeholder="Search for recipes"
@@ -63,7 +63,7 @@ class SearchRecipesForm extends Component {
                   name="keyword"
                 />
               </Form.Group>
-              <Form.Group className="col-1 pl-0 pr-0">
+              <Form.Group className="pl-0 pr-0">
                 <Button
                   variant="outline-primary"
                   // className="d-flex"

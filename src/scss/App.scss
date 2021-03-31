@@ -1,5 +1,6 @@
 @import './custom';
 @import '../../node_modules/bootstrap/scss/bootstrap';
+// organize this into separate files!!
 
 body {
   font-family: "Libre Baskerville", serif, "Bitstream Vera Serif", sans-serif;
@@ -102,6 +103,24 @@ h1 {
   -webkit-font-smoothing: antialiased;
 }
 
+.nav-link, .navbar-brand{
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  font-size: 0.9em !important;
+  // padding-top: 5px;
+  // height: 80px;
+  }
+
+.search-bar-nav {
+  width: 450px;
+}
+
+.vertical-center {
+  padding-top: 20px;
+  width: 100%;
+  justify-content: right;
+}
+
 .recipe-yield-time {
   font-size: 1.2rem;
   letter-spacing: .5px;
@@ -126,10 +145,7 @@ h1 {
   font-size: x-large;
   background-color: #e3f2fd;
 }
-.navbar-brand {
-  padding-top: 5px;
-  height: 80px;
-}
+
 .navbar-brand img {
   width: 200px;
 }
@@ -160,10 +176,6 @@ h1 {
 
 .search-form {
   padding-right: 40px;
-}
-
-.vertical-center {
-  padding-top: 20px;
 }
 
 .recipe-card-left {
@@ -214,6 +226,14 @@ h1 {
   .recipe-item-page {
     width: 100%;
     /* justify-content: center; */
+  }
+
+}
+
+@media only screen and (max-width: 1200px) {
+  
+  .search-bar-nav {
+    width: 220px;
   }
 
 }
