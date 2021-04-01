@@ -1,12 +1,8 @@
 .btn-custom {
-    @include theme-color;
-  }
+  @include theme-color;
+}
 
-  
 .btn-custom:hover {
-    border-color: rgb(0, 10, 17) !important;
-    color: rgb(0, 10, 17) !important;
-  }
-
-  
-  
+  border-color: rgb(0, 10, 17) !important;
+  color: rgb(0, 10, 17) !important;
+}

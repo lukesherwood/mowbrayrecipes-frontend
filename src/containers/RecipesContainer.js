@@ -2,6 +2,7 @@ import React from "react";
 import { fetchRecipes, deleteRecipe } from "../actions/recipeActions";
 import { connect } from "react-redux";
 import Recipes from "../components/Recipes";
+import Loader from "react-loader-spinner";
 
 class RecipesContainer extends React.Component {
   componentDidMount() {
@@ -9,13 +10,24 @@ class RecipesContainer extends React.Component {
   }
 
   render() {
+    const { loading } = this.props;
     return (
       <div className="recipe-container">
         <h3 className="header-theme">Recipes</h3>
-        <Recipes
-          recipes={this.props.recipes}
-          deleteRecipe={this.props.deleteRecipe}
-        />
+        {loading ? (
+          <Loader
+            className="text-center"
+            type="TailSpin"
+            color="#00BFFF"
+            height={80}
+            width={80}
+          />
+        ) : (
+          <Recipes
+            recipes={this.props.recipes}
+            deleteRecipe={this.props.deleteRecipe}
+          />
+        )}
       </div>
     );
   }
@@ -23,6 +35,7 @@ class RecipesContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    loading: state.recipes.loading,
     recipes: state.recipes.recipes,
     user: state.users.user,
   };

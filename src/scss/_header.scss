@@ -1,9 +1,8 @@
-  .header-theme {
-    @include theme-color;
-    border-radius: 8px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    margin: 0px;
-    text-align: center;
-  }
-  
+.header-theme {
+  @include theme-color;
+  border-radius: 8px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+  text-align: center;
+}

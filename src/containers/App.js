@@ -19,6 +19,7 @@ import { fetchRecipes } from "../actions/recipeActions";
 import RecipeUpdate from "./RecipeUpdate";
 import AuthRoutes from "../components/AuthRoutes";
 
+
 class App extends Component {
   componentDidMount() {
     this.props.autoLogin();
@@ -30,6 +31,8 @@ class App extends Component {
       <div className="App">
         <NavbarClass />
         <Container>
+ 	
+ 	
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/signIn" component={SignIn} />
