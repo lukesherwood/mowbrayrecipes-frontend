@@ -15,13 +15,15 @@ class RecipesContainer extends React.Component {
       <div className="recipe-container">
         <h3 className="header-theme">Recipes</h3>
         {loading ? (
-          <Loader
-            className="text-center"
-            type="TailSpin"
-            color="#00BFFF"
-            height={80}
-            width={80}
-          />
+          <div className="vh-100 w-100">
+            <Loader
+              className="text-center"
+              type="TailSpin"
+              color="#00BFFF"
+              height={80}
+              width={80}
+            />
+          </div>
         ) : (
           <Recipes
             recipes={this.props.recipes}
