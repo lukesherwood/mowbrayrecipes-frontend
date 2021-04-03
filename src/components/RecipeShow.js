@@ -6,11 +6,10 @@ import moment from "moment";
 import UserButtons from "./UserButtons";
 import Comments from "./Comments";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import {Clock} from 'react-bootstrap-icons'
+import { Clock } from "react-bootstrap-icons";
 
 export default function RecipeShow(props) {
-  const { recipes, params } = props;
-
+  const { recipes, params, loggedIn } = props;
   if (recipes) {
     let recipe = recipes.find((r) => r.id === params.match.params.id);
     if (recipe) {
@@ -23,13 +22,15 @@ export default function RecipeShow(props) {
           <Jumbotron className="header-theme">
             <div className="display-4">{recipe.attributes.name}</div>
             <div className="lead">By: {recipe.attributes.user.name}</div>
-            <hr class="my-4" />
+            <hr className="my-4" />
             <Row xs={1} md={2} lg={2}>
               <Col className="text-left">
                 <Row>
                   <Col className="col-4">
                     <h6>
-                      <div>Total <Clock/> </div>
+                      <div>
+                        Total <Clock />{" "}
+                      </div>
                       <div>
                         {recipe.attributes.prep_time +
                           recipe.attributes.cook_time}{" "}
@@ -39,13 +40,17 @@ export default function RecipeShow(props) {
                   </Col>
                   <Col className="col-4">
                     <h6>
-                     <div>Prep <Clock/> </div>
+                      <div>
+                        Prep <Clock />{" "}
+                      </div>
                       <div>{recipe.attributes.prep_time} mins </div>
                     </h6>
                   </Col>
                   <Col className="col-4">
                     <h6>
-                      <div>Cook <Clock/> </div>
+                      <div>
+                        Cook <Clock />{" "}
+                      </div>
                       <div>{recipe.attributes.cook_time} mins </div>
                     </h6>
                   </Col>
@@ -70,7 +75,7 @@ export default function RecipeShow(props) {
                   </Col>
                   <div className="w-100 d-none d-md-block"></div>
                   <Col>
-                  <hr class="my-4" />
+                    <hr className="my-4" />
                     <h4>Description/Notes:</h4>
                     <ul>
                       {recipe.attributes.description.split(/\n/).map((line) => (
@@ -127,7 +132,7 @@ export default function RecipeShow(props) {
             <br></br>
           </div>
           <br></br>
-          <Comments recipe={recipe} />
+          <Comments recipe={recipe} loggedIn={loggedIn}/>
         </div>
       );
     }

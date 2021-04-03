@@ -3,6 +3,7 @@ import CreateCommentForm from "../containers/CreateCommentForm";
 import Comment from "./Comment";
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export default function Comments(props) {
   const recipe = props.recipe;
@@ -28,7 +29,18 @@ export default function Comments(props) {
             Leave a Comment
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
-            <CreateCommentForm recipe={recipe} />
+            {props.loggedIn ? (
+              <CreateCommentForm recipe={recipe} />
+            ) : (
+              <div className="border p-4 text-center">
+                <div> You need to be logged in to comment</div>
+                <Link to="/signIn" className="btn btn-custom btn-sm">
+                  {" "}
+                  Sign In here{" "}
+                </Link>
+                <br/>
+              </div>
+            )}
           </Accordion.Collapse>
         </Accordion>
       </div>

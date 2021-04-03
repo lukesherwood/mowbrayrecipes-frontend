@@ -40,14 +40,13 @@ class App extends Component {
               loggedIn={this.props.loggedIn}
               render={(params) => <RecipeUpdate params={params} />}
             />
-            <Route exact path="/recipes" component={RecipesContainer} />
             <Route
               path="/recipes/:id"
-              loggedIn={this.props.loggedIn}
               render={(params) => (
-                <RecipeShow recipes={this.props.recipes} params={params} />
+                <RecipeShow recipes={this.props.recipes} params={params} loggedIn={this.props.loggedIn}/>
               )}
             />
+            <Route exact path="/recipes" component={RecipesContainer} />
             <AuthRoutes
               exact
               path="/user"

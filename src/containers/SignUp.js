@@ -43,6 +43,7 @@ class Signup extends Component {
               password_confirmation,
             };
             this.props.signUserUp(user);
+            this.props.history.goBack();
             resetForm();
             setSubmitting(false);
           }}

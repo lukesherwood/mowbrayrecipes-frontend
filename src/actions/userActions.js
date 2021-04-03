@@ -19,7 +19,6 @@ export const signUserUp = (userInfo, ownProps) => (dispatch) => {
         const token = authHeader.substring(7, authHeader.length);
         localStorage.setItem("token", token);
         dispatch(setUser(data.data));
-        ownProps.history.push(`/`);
         NotificationManager.success(
           `You have successfully signed up ${data.data.name}`,
           "Successful!",
@@ -48,7 +47,6 @@ export const fetchUser = (userInfo, ownProps) => (dispatch) => {
         const token = authHeader.substring(7, authHeader.length);
         localStorage.setItem("token", token);
         dispatch(setUser(data.data));
-        ownProps.history.push(`/`);
         NotificationManager.success(
           `You have successfully logged in ${data.data.name}`,
           "Successful!",

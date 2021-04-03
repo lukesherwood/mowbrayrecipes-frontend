@@ -31,6 +31,7 @@ class SignIn extends Component {
               password,
             };
             this.props.fetchUser(user);
+            this.props.history.goBack();
             resetForm();
             setSubmitting(false);
           }}
